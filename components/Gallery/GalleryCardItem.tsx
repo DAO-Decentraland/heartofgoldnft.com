@@ -44,12 +44,18 @@ const Wrapper = styled.div`
 			color: #A4A4A4;
 			font-size: 14px;
 			line-height: 160%;
+      @media only screen and (max-width: 1024px) {
+	      font-size: 12px;
+      }
 		}
 		span{
 			color: #FFF;
 			font-size: 14px;
 			line-height: 160%;
 			margin-left: 5px;
+      @media only screen and (max-width: 1024px) {
+	      font-size: 12px;
+      }
 		}
 	}
 `

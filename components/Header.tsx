@@ -39,7 +39,7 @@ const Wrapper = styled.header`
 	background: transparent;
   transition: all .3s ease-in-out;
 	@media only screen and (max-width: 600px) {
-		padding: 10px 0;
+		padding: 20px 0;
 	}
 	.logo{
     width: 100%;
@@ -55,6 +55,9 @@ const Wrapper = styled.header`
 		padding: 10px 0;
 		background: #1D1D1D;
     transition: all .3s ease-in-out;
+    @media only screen and (max-width: 600px) {
+	    padding: 20px 0;
+    }
 		.logo{
       max-width: 60px;
       transition: all .3s ease-in-out;

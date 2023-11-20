@@ -46,6 +46,9 @@ export default function GalleryCard({data}: {data: Collection}) {
 
 const Wrapper = styled.section`
 	margin-top: 160px;
+  @media only screen and (max-width: 600px) {
+	  margin-top: 80px;
+  }
 	.back_button{
 		width: auto;
 		color: #EFBC6A;
@@ -62,10 +65,21 @@ const Wrapper = styled.section`
 		max-width: 800px;
 		width: 100%;
 		margin: 60px auto 0 auto;
+    @media only screen and (max-width: 1024px) {
+	    max-width: 100%;
+    }
+    @media only screen and (max-width: 600px) {
+      flex-direction: column;
+	    max-width: 100%;
+	    margin: 40px auto 0 auto;
+    }
 	}
 	.image{
 		position: relative;
 		width: 332px;
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+    }
 		img{
 			position: relative;
 			z-index: 10;
@@ -88,21 +102,44 @@ const Wrapper = styled.section`
 		margin-left: 40px;
 		position: relative;
 		z-index: 10;
+    @media only screen and (max-width: 1024px) {
+      width: calc(100% - 330px);
+    }
+    @media only screen and (max-width: 600px) {
+      margin-left: 0;
+      width: 100%;
+      margin-top: 20px;
+    }
 	}
-	.title{
-		color: #EFBC6A;
-		display: flex;
-		align-items: center;
-		img{
-			margin-right: 10px;
-		}
-	}
+  .title{
+    display: flex;
+    align-items: center;
+    h2{
+      color: #EFBC6A;
+      font-size: 60px;
+      @media only screen and (max-width: 600px) {
+        font-size: 40px;
+      }
+    }
+    img{
+      margin-right: 10px;
+      @media only screen and (max-width: 600px) {
+        width: 25px;
+      }
+    }
+  }
 	.list{
 		margin-top: 50px;
+    @media only screen and (max-width: 600px) {
+      margin-top: 30px;
+    }
 		p{
 			font-size: 20px;
 			font-weight: 300;
 			line-height: 160%;
+      @media only screen and (max-width: 600px) {
+        font-size: 16px;
+      }
 			&:first-child{
 				color: #A4A4A4;
 			}

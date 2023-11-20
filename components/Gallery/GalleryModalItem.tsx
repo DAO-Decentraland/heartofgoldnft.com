@@ -33,10 +33,19 @@ export default function GalleryModalItem() {
 
 const Wrapper = styled.div`
 	display: flex;
+  @media only screen and (max-width: 600px) {
+	  flex-direction: column;
+  }
 	.image_modal{
 		width: 330px;
 		position: relative;
 		margin-left: 90px;
+    @media only screen and (max-width: 1024px) {
+	    margin-left: 0;
+    }
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+    }
 		img{
 			position: relative;
 			z-index: 10;
@@ -57,13 +66,31 @@ const Wrapper = styled.div`
 	.content_modal{
 		width: 320px;
 		padding-left: 70px;
+    @media only screen and (max-width: 1024px) {
+      width: calc(100% - 330px);
+	    padding-left: 80px;
+    }
+    @media only screen and (max-width: 820px) {
+	    padding-left: 40px;
+    }
+    @media only screen and (max-width: 600px) {
+	    padding-left: 0;
+      width: 100%;
+	    margin-top: 20px;
+    }
 	}
 	.modal_list{
 		margin-top: 50px;
+    @media only screen and (max-width: 600px) {
+	    margin-top: 30px;
+    }
 		p{
 			font-size: 20px;
 			font-weight: 300;
 			line-height: 160%;
+      @media only screen and (max-width: 600px) {
+	      font-size: 16px;
+      }
 			&:first-child{
 				color: #A4A4A4;
 			}
@@ -90,9 +117,15 @@ const Wrapper = styled.div`
 		h2{
 			color: #EFBC6A;
 			font-size: 60px;
+      @media only screen and (max-width: 600px) {
+	      font-size: 40px;
+      }
 		}
 		img{
 			margin-right: 10px;
+      @media only screen and (max-width: 600px) {
+        width: 25px;
+      }
 		}
 	}
 `

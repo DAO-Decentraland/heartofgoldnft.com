@@ -28,7 +28,7 @@ const Wrapper = styled.section`
 	padding-top: 140px;
 	position: relative;
   @media only screen and (max-width: 600px) {
-	  padding-top: 80px;
+	  padding-top: 100px;
   }
 	.center_block{
 		display: flex;

@@ -63,12 +63,22 @@ const Wrapper = styled.section`
 		font-weight: 300;
 		line-height: 160%;
 		text-align: center;
+    @media only screen and (max-width: 600px) {
+	    font-size: 16px;
+	    line-height: 1.4;
+    }
 	}
 	.list{
 		margin-top: 80px;
+    @media only screen and (max-width: 600px) {
+	    margin-top: 40px;
+    }
 	}
 	.item{
 		margin-right: 20px;
+    @media only screen and (max-width: 600px) {
+      width: 220px;
+    }
 	}
 	.button_link{
 		max-width: 320px;

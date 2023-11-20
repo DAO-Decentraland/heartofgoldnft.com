@@ -26,7 +26,7 @@ export default function Gallery(){
 	useEffect(() => {
 		state.galleryPage = query.page ? Number(query.page) : 1
 	}, [query.page]);
-	
+
 	useEffect(() => {
 		makeRequest(Number(snap.galleryPage))
 	}, [snap.galleryPage])
@@ -79,6 +79,12 @@ export default function Gallery(){
 
 const Wrapper = styled.section`
 	margin-top: 160px;
+  @media only screen and (max-width: 1024px) {
+	  margin-top: 120px;
+  }
+  @media only screen and (max-width: 600px) {
+	  margin-top: 80px;
+  }
 	.heading{
 		text-align: center;
 	}

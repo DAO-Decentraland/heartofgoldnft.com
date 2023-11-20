@@ -3,10 +3,12 @@ import array from "public/data/filters.json"
 import {state} from "state";
 import {useSnapshot} from "valtio";
 import {CollectionFilters} from "app-lib/interface/collection";
+import Responsive from "helpers/Responsive";
+import GallerySortingButtons from "components/Gallery/GallerySortingButtons";
 
 export default function GalleryFiltersModal() {
 	const snap = useSnapshot(state)
-	
+
 	const onHandleChange = (value: string, label: keyof CollectionFilters) => {
 		let filteredArray: string[] = [...snap.galleryFilters[label]];
 		if (filteredArray.find((item: string) => item === value)) {
@@ -30,7 +32,7 @@ export default function GalleryFiltersModal() {
 		}
 		state.galleryFiltersModal = false
 	}
-	
+
 	const renderListArray = (array: string[], label: keyof CollectionFilters) => {
 		return (
 			array.map((item: string, index: number) => {
@@ -51,6 +53,9 @@ export default function GalleryFiltersModal() {
 				<button
 					onClick={() => state.galleryFiltersModal = false}
 					className="close_filters">close <img src="/pic/close-icon.svg" alt="close"/></button>
+				<Responsive width={600} mobile={
+					<GallerySortingButtons/>
+				}/>
 				<div className="filters_list">
 					{
 						array.map((item: any, index: number) => {
@@ -113,6 +118,11 @@ const Wrapper = styled.div`
     overflow-y: auto;
     z-index: 20;
     transition: all .3s ease-in-out;
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+      right: -100%;
+	    padding: 30px;
+    }
     &::-webkit-scrollbar { width: 3px; height: 3px; opacity: 0; visibility: hidden}
     &.visible{
       right: 0;
@@ -139,6 +149,9 @@ const Wrapper = styled.div`
 	}
 	.filters_list{
 		margin-top: 20px;
+    @media only screen and (max-width: 600px) {
+	    margin-top: 40px;
+    }
 	}
 	h4{
 		color: #FFF;
@@ -221,5 +234,10 @@ const Wrapper = styled.div`
     font-weight: 500;
     line-height: 100%;
 		border-bottom: 1px dashed #EFBC6A;
+	}
+	.sort_filters{
+    @media only screen and (max-width: 600px) {
+	    margin-top: 30px;
+    }
 	}
 `

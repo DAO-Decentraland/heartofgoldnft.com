@@ -47,6 +47,10 @@ const Wrapper = styled.section`
 		flex-wrap: wrap;
 		margin-right: -30px;
 		margin-bottom: -95px;
+    @media only screen and (max-width: 600px) {
+	    margin-right: 0;
+	    margin-bottom: -60px;
+    }
 	}
 	.item{
     width: calc(100% / 4 - 30px);
@@ -56,7 +60,9 @@ const Wrapper = styled.section`
       width: calc(100% / 2 - 30px);
     }
     @media only screen and (max-width: 600px) {
-	    margin-bottom: 30px;
+      width: 100%;
+	    margin-right: 0;
+	    margin-bottom: 60px;
     }
 		&:nth-child(1){
 			margin-top: 30px;
@@ -107,7 +113,6 @@ const Wrapper = styled.section`
 	    text-align: center;
     }
     @media only screen and (max-width: 600px) {
-	    font-size: 14px;
 	    line-height: 1.4;
     }
 	}
@@ -119,9 +124,6 @@ const Wrapper = styled.section`
     line-height: 130%;
     @media only screen and (max-width: 820px) {
 	    text-align: center;
-    }
-    @media only screen and (max-width: 600px) {
-	    font-size: 13px;
     }
 	}
 `

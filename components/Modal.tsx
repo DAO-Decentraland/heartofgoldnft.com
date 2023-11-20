@@ -43,6 +43,12 @@ const Wrapper = styled.div`
 		border-radius: 30px;
 		background: #0D0D0D;
 		padding: 30px;
+		max-height: 85vh;
+		overflow-y: auto;
+		&::-webkit-scrollbar { width: 3px; height: 3px; opacity: 0; visibility: hidden}
+    @media only screen and (max-width: 600px) {
+	    padding: 30px 20px;
+    }
 	}
 	.overlay{
 		position: absolute;
@@ -67,7 +73,5 @@ const Wrapper = styled.div`
 	}
 	.modal_content{
 		margin-top: 15px;
-		overflow-y: auto;
-		max-height: 85vh;
 	}
 `
