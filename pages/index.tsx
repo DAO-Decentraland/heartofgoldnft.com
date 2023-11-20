@@ -11,11 +11,22 @@ import MainCommunity from "layouts/Main/MainCommunity";
 import {useEffect} from "react";
 import {useRouter} from "next/router";
 import {state} from "state";
+import {scroller} from "react-scroll";
 
 export default function Home(){
 	const {query} = useRouter()
 	useEffect(() => {
-		if (query) state.utm = JSON.stringify(query)
+		if (query && !query.scroll) state.utm = JSON.stringify(query)
+		if (query.scroll) {
+			setTimeout(() => {
+				scroller.scrollTo(query.scroll as string, {
+					duration: 1500,
+					delay: 100,
+					smooth: true,
+					offset: -76,
+				})
+			}, 300)
+		}
 	}, [query]);
 	return (
 		<>
