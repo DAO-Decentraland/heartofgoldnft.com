@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import RcPagination from 'rc-pagination';
 import Responsive from "helpers/Responsive";
-import Router from "next/router";
+import Router, {useRouter} from "next/router";
 interface PaginationProps {
 	total: number | null
 	page: number | string
 	slug: string
 }
 export default function Pagination({total, page, slug}: PaginationProps) {
+	const {push} = useRouter()
 	const onHandleChange = (itemPage: string | number) => {
 		if (itemPage !== page) {
 			if (slug !== "all") {
@@ -15,21 +16,21 @@ export default function Pagination({total, page, slug}: PaginationProps) {
 			} else Router.push(`${slug}?page=${itemPage}`)
 		}
 	}
-	
+
 	const onHandleClick = () => {
 		if (slug !== "all") {
 			Router.push(`${slug}?page=${+page + 1}`)
 		} else Router.push(`${slug}?page=${+page + 1}`)
 	}
-	
+
 	return (
 		total && Number(total) > 1 ? (
 			<Wrapper className="pagination">
 				<Responsive mobile={
 					<div className="mobile_more">
-						<button>First page</button>
+						<button onClick={() => push(`${slug}?page=1`)}>First page</button>
 						<button onClick={onHandleClick}>Show more</button>
-						<button>Last page</button>
+						<button onClick={() => push(`${slug}?page=${total}`)}>Last page</button>
 					</div>
 				}>
 					<RcPagination
