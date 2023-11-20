@@ -1,0 +1,32 @@
+[
+	{
+		"title": "Metal",
+		"array": ["Bronze", "Copper", "Silver", "Gold"],
+		"label": "metal"
+	},
+	{
+		"title": "Suit",
+		"array": ["Hand", "Eye", "Engine", "Brain", "Heart"],
+		"label": "augmentation"
+	},
+	{
+		"title": "Stone",
+		"array": ["Aquamarine", "Pearl", "Sapphire", "Ruby", "Emerald", "Diamond"],
+		"label": "stone"
+	},
+	{
+		"title": "Figure",
+		"array": ["Square", "Circle", "Rays", "Pyramid"],
+		"label": "pattern"
+	},
+	{
+		"title": "Cosmos",
+		"array": ["Earth", "Mercury", "Venus", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "None"],
+		"label": "planet"
+	},
+	{
+		"title": "Star",
+		"array": ["Sun", "Moon", "Lilith", "None"],
+		"label": "star"
+	}
+]

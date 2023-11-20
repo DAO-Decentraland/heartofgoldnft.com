@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Collection {
+  id           Int    @unique @default(autoincrement())
+  token_id     Int
+  image        String
+  rank         Int
+  metal        String @default("None")
+  augmentation String @default("None")
+  color        String @default("None")
+  pattern      String @default("None")
+  stone        String @default("None")
+  planet       String @default("None")
+  star         String @default("None")
+  prizeX       Int?   @map("prize_x")
+  prizeAmount  Int?   @map("prize_amount")
+
+  @@map("collection")
+}
+
+model TotalSupply {
+  id    Int  @unique @default(autoincrement())
+  total Int?
+
+  @@map("total_supply")
+}
+
+model UtmConnect {
+  id       Int      @unique @default(autoincrement())
+  datetime DateTime
+  wallet   String
+  utm      String   @db.Text
+
+  @@map("utm_connect")
+}
+
+model UtmMint {
+  id       Int      @unique @default(autoincrement())
+  datetime DateTime
+  wallet   String
+  value    Int
+  utm      String   @db.Text
+
+  @@map("utm_mint")
+}
+
+model WhiteListForm {
+  id     Int     @unique @default(autoincrement())
+  email  String  @unique
+  wallet String  @unique
+  utm    String? @db.Text
+
+  @@map("white_list_form")
+}

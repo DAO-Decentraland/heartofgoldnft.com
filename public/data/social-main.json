@@ -1,0 +1,27 @@
+[
+	{
+		"title": "Instagram",
+		"slug": "https://www.instagram.com/hognft",
+		"icon": "/pic/social/instagram.svg"
+	},
+	{
+		"title": "Telegram",
+		"slug": "https://t.me/heartofgoldchat",
+		"icon": "/pic/social/telegram.svg"
+	},
+	{
+		"title": "Discord",
+		"slug": "https://discord.com/invite/UmVjNZ4858",
+		"icon": "/pic/social/discord.svg"
+	},
+	{
+		"title": "Twitter",
+		"slug": "https://twitter.com/heartofgoldnft",
+		"icon": "/pic/social/twitter.svg"
+	},
+	{
+		"title": "Medium",
+		"slug": "https://medium.com/heart-of-gold",
+		"icon": "/pic/social/medium.svg"
+	}
+]

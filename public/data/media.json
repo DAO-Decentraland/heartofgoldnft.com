@@ -1,0 +1,30 @@
+[
+	{
+		"title": "TechTimes",
+		"slug": "https://www.techtimes.com/articles/294295/20230726/why-elon-musk-tweets-deus-ex-machina-again.htm",
+		"image": "/pic/media/techtimes.png",
+		"width": 179,
+		"height": 25.07
+	},
+	{
+		"title": "Media about us",
+		"slug": "#",
+		"image": "/pic/media/media-about-us.png",
+		"width": 304.62,
+		"height": 28.98
+	},
+	{
+		"title": "News BTC",
+		"slug": "https://www.newsbtc.com/news/company/elon-musks-third-deus-ex-machina-tweet-nft-connection/",
+		"image": "/pic/media/news-btc.png",
+		"width": 225,
+		"height": 44.23
+	},
+	{
+		"title": "Hackernoon",
+		"slug": "#",
+		"image": "/pic/media/hackernoon.png",
+		"width": 248.94,
+		"height": 45
+	}
+]

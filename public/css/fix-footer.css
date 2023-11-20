@@ -1,0 +1,5 @@
+html, #__next {min-height: 100%; height: 100%}
+body {height: 100%; overflow-x: hidden}
+header, footer {flex: 0 0 auto}
+main {flex: 1 0 auto}
+#__next {display: flex; flex-direction: column;}

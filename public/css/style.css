@@ -1,0 +1,105 @@
+@import "fix-footer.css";
+@import "fonts.css";
+
+html, body {
+	-webkit-overflow-scrolling: touch;
+	font-size: 20px;
+	line-height: 160%;
+	font-weight: 400;
+	color: #FFF;
+	background: #1D1D1D;
+	-webkit-tap-highlight-color: transparent;
+	font-family: 'Graphik', sans-serif;
+}
+
+a {
+	color: #FFFFFF;
+	text-decoration: none;
+	transition: all .3s ease-in-out;
+	cursor: pointer;
+}
+
+table{
+	width: 100%;
+}
+
+button svg, a svg{
+	transition: all .3s ease-in-out;
+}
+
+button:hover svg, a:hover svg{
+	transition: all .3s ease-in-out;
+}
+
+button {
+	transition: all 0.3s ease-in-out;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	background-color: transparent;
+	font-family: 'Graphik', sans-serif;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	outline: none;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+a:hover, button:hover {transition: all .3s ease-in-out}
+button svg, a svg, button:hover svg, a:hover svg{
+	transition: all .3s ease-in-out;
+}
+ul {list-style: none}
+img.align-self {align-self: center}
+form {width: 100%; position: relative}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	select, textarea, input {
+		font-size: 16px;
+	}
+}
+
+input, textarea {
+	width: 100%;
+	border: none;
+	background: transparent;
+	font-family: 'Graphik', sans-serif;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type=number] {
+	-moz-appearance: textfield;
+}
+
+img, svg {
+	max-width: 100%;
+	height: auto;
+	align-self: center
+}
+
+img.align-self, svg.align-self {
+	align-self: center;
+}
+
+/* Remove autocomplete styling for input and textarea fields */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+	box-shadow: 0 0 0 1000px white inset !important;
+	transition: background-color 5000s ease-in-out 0s !important;
+}

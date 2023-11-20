@@ -1,0 +1,68 @@
+@font-face {
+	font-family: 'BoogyBrutPoster-White';
+	src: url('../fonts/BoogyBrutPoster-White/BoogyBrutPoster-White.eot');
+	src: url('../fonts/BoogyBrutPoster-White/BoogyBrutPoster-White.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/BoogyBrutPoster-White/BoogyBrutPoster-White.svg#BoogyBrutPoster-White') format('svg'),
+	url('../fonts/BoogyBrutPoster-White/BoogyBrutPoster-White.ttf') format('truetype'),
+	url('../fonts/BoogyBrutPoster-White/BoogyBrutPoster-White.woff') format('woff'),
+	url('../fonts/BoogyBrutPoster-White/BoogyBrutPoster-White.woff2') format('woff2');
+	font-weight: 100;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Graphik';
+	src: url('../fonts/Graphik-Web/Graphik-Thin-Web/Graphik-Thin-Web.eot');
+	src: url('../fonts/Graphik-Web/Graphik-Thin-Web/Graphik-Thin-Web.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/Graphik-Web/Graphik-Thin-Web/Graphik-Thin-Web.svg#Graphik-Thin') format('svg'),
+	url('../fonts/Graphik-Web/Graphik-Thin-Web/Graphik-Thin-Web.ttf') format('truetype'),
+	url('../fonts/Graphik-Web/Graphik-Thin-Web/Graphik-Thin-Web.woff') format('woff'),
+	url('../fonts/Graphik-Web/Graphik-Thin-Web/Graphik-Thin-Web.woff2') format('woff2');
+	font-weight: 100;
+	font-style: normal;
+	font-display: swap;
+}
+
+
+@font-face {
+	font-family: 'Graphik';
+	src: url('../fonts/Graphik-Web/Graphik-Light-Web/Graphik-Light-Web.eot');
+	src: url('../fonts/Graphik-Web/Graphik-Light-Web/Graphik-Light-Web.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/Graphik-Web/Graphik-Light-Web/Graphik-Light-Web.svg#Graphik-Light') format('svg'),
+	url('../fonts/Graphik-Web/Graphik-Light-Web/Graphik-Light-Web.ttf') format('truetype'),
+	url('../fonts/Graphik-Web/Graphik-Light-Web/Graphik-Light-Web.woff') format('woff'),
+	url('../fonts/Graphik-Web/Graphik-Light-Web/Graphik-Light-Web.woff2') format('woff2');
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Graphik';
+	src: url('../fonts/Graphik-Web/Graphik-Regular-Web/Graphik-Regular-Web.eot');
+	src: url('../fonts/Graphik-Web/Graphik-Regular-Web/Graphik-Regular-Web.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/Graphik-Web/Graphik-Regular-Web/Graphik-Regular-Web.svg#Graphik-Regular') format('svg'),
+	url('../fonts/Graphik-Web/Graphik-Regular-Web/Graphik-Regular-Web.ttf') format('truetype'),
+	url('../fonts/Graphik-Web/Graphik-Regular-Web/Graphik-Regular-Web.woff') format('woff'),
+	url('../fonts/Graphik-Web/Graphik-Regular-Web/Graphik-Regular-Web.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Graphik';
+	src: url('../fonts/Graphik-Web/Graphik-Medium-Web/Graphik-Medium-Web.eot');
+	src: url('../fonts/Graphik-Web/Graphik-Medium-Web/Graphik-Medium-Web.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/Graphik-Web/Graphik-Medium-Web/Graphik-Medium-Web.svg#Graphik-Medium') format('svg'),
+	url('../fonts/Graphik-Web/Graphik-Medium-Web/Graphik-Medium-Web.ttf') format('truetype'),
+	url('../fonts/Graphik-Web/Graphik-Medium-Web/Graphik-Medium-Web.woff') format('woff'),
+	url('../fonts/Graphik-Web/Graphik-Medium-Web/Graphik-Medium-Web.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-stretch: normal;
+	font-display: swap;
+}

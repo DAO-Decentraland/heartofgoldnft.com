@@ -1,0 +1,50 @@
+[
+	{
+		"title": "Caroline",
+		"label": "CEO&Founder",
+		"description": "Forbes-featured marketing expert with 6+ years of experience in the web3 industry, ex-Huobi.",
+		"image": "/pic/team/team-1.png"
+	},
+	{
+		"title": "John",
+		"label": "CTO",
+		"description": "Leading developer teams for the past 6 years, with 4+ years of expertise in the realms of crypto and web3 technologies.",
+		"image": "/pic/team/team-2.png"
+	},
+	{
+		"title": "Alex",
+		"label": "Art Director",
+		"description": "Over the last 10 years, has been curating exceptional designs and creative concepts for the very best brands in the luxury market.",
+		"image": "/pic/team/team-3.png"
+	},
+	{
+		"title": "Natalie",
+		"label": "Head of Design",
+		"description": "With 13+ years of design experience, has collaborated with industry giants in FMCG, crafting exceptional web designs.",
+		"image": "/pic/team/team-4.png"
+	},
+	{
+		"title": "Vik",
+		"label": "Lead Front-End Developer",
+		"description": "16+ years of industry experience, including a dedicated 4+ years in web3 development.",
+		"image": "/pic/team/team-5.png"
+	},
+	{
+		"title": "Matias",
+		"label": "Content manager",
+		"description": "10+ years of experience in the global fintech, Europe's Best Content Marketer 2021.",
+		"image": "/pic/team/team-6.png"
+	},
+	{
+		"title": "Felix",
+		"label": "Community Manager",
+		"description": "An 8-year experienced Community Manager with a passion for the blockchain industry, nurturing robust communities for renowned crypto startups worldwide.",
+		"image": "/pic/team/team-7.png"
+	},
+	{
+		"title": "Ivan",
+		"label": "Business analyst",
+		"description": "A seasoned Data Scientist with 5+ years of experience and a PhD qualification.",
+		"image": "/pic/team/team-8.png"
+	}
+]

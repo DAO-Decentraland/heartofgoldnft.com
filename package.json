@@ -1,0 +1,48 @@
+{
+  "name": "heartofgoldnft.com",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "npx dotenv -e .env.dev next dev",
+    "build": "next build",
+    "test": "npx dotenv -e .env.dev next build",
+    "start": "next start",
+    "lint": "next lint",
+    "push": "npx dotenv -e .env.dev -- prisma db push",
+    "push:prod": "npx dotenv -e .env.prod -- prisma db push",
+    "studio": "npx dotenv -e .env.dev -- prisma studio",
+    "reset": "npx dotenv -e .env.dev prisma migrate reset",
+    "reset:prod": "npx dotenv -e .env.prod prisma migrate reset"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.6.0",
+    "@react-hook/window-scroll": "^1.3.0",
+    "axios": "^1.6.2",
+    "dotenv-cli": "^7.3.0",
+    "html-react-parser": "^5.0.6",
+    "lottie-react": "^2.4.0",
+    "next": "14.0.3",
+    "next-api-handler": "^0.4.10",
+    "next-seo": "^6.4.0",
+    "nextjs-cors": "^2.1.2",
+    "number-currency-format": "^1.0.10",
+    "prisma": "^5.6.0",
+    "rc-pagination": "^3.7.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-fast-marquee": "^1.6.2",
+    "react-responsive": "^9.0.2",
+    "react-scroll": "^1.9.0",
+    "styled-components": "^6.1.1",
+    "valtio": "^1.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/react-scroll": "^1.8.10",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.3",
+    "typescript": "^5"
+  }
+}
