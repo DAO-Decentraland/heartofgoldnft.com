@@ -4,6 +4,8 @@ import Link from "next/link";
 import MainNav from "components/MainNav";
 import useScrollPosition from "@react-hook/window-scroll";
 import {useEffect, useState} from "react";
+import Responsive from "helpers/Responsive";
+import {state} from "state";
 
 export default function Header() {
 	const scrollY = useScrollPosition(60)
@@ -15,7 +17,13 @@ export default function Header() {
 		<Wrapper className={fixed ? "fixed" : ""}>
 			<CenterBlock>
 				<Link href="/"><img className="logo" src="/pic/logo.svg" alt="heart of gold nft"/></Link>
-				<MainNav/>
+				<Responsive width={820} mobile={
+					<button onClick={() => state.mobileNav = true} className="mobile_nav">
+						<img src="/pic/mobile-nav.svg" alt="Mobil nav"/>
+					</button>
+				}>
+					<MainNav/>
+				</Responsive>
 			</CenterBlock>
 		</Wrapper>
 	)
@@ -30,9 +38,15 @@ const Wrapper = styled.header`
 	padding: 30px 0;
 	background: transparent;
   transition: all .3s ease-in-out;
+	@media only screen and (max-width: 600px) {
+		padding: 10px 0;
+	}
 	.logo{
     width: 100%;
     transition: all .3s ease-in-out;
+		@media only screen and (max-width: 600px) {
+			width: 55px;
+		}
 	}
 	&.fixed{
 		padding: 10px 0;
@@ -67,5 +81,8 @@ const Wrapper = styled.header`
 				margin-right: 0;
 			}
 		}
+	}
+	.mobile_nav{
+		width: auto;
 	}
 `

@@ -7,7 +7,9 @@ export default function Footer() {
 	return (
 		<Wrapper>
 			<CenterBlock>
-				<Link href="/"><img width={77} src="/pic/logo.svg" alt="heart of gold nft"/></Link>
+				<div className="logo">
+					<Link href="/"><img width={77} src="/pic/logo.svg" alt="heart of gold nft"/></Link>
+				</div>
 				<ul className="links">
 					<li><a href="mailto:info@heartofgoldnft.com">info@heartofgoldnft.com</a></li>
 					<li><a href={`https://bscscan.com/address/${process.env.CONTRACT}#readContract`} target="_blank" rel="noreferrer" className="target_slug">Smart contract</a></li>
@@ -27,10 +29,32 @@ const Wrapper = styled.footer`
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		@media only screen and (max-width: 1024px) {
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+		}
+	}
+	.logo{
+		@media only screen and (max-width: 1024px) {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+		}
 	}
 	.links{
 		display: flex;
 		align-items: center;
+		@media only screen and (max-width: 1024px) {
+			justify-content: center;
+			width: 100%;
+			margin-top: 20px;
+		}
+		@media only screen and (max-width: 600px) {
+			flex-direction: column;
+			align-items: flex-start;
+			width: 100%;
+		}
 		a{
       color: #EFBC6A;
       font-size: 16px;
@@ -47,14 +71,29 @@ const Wrapper = styled.footer`
 		}
 		li{
 			margin-right: 50px;
+			@media only screen and (max-width: 600px) {
+				margin-right: 0;
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				margin-bottom: 15px;
+			}
 			&:last-child{
 				margin-right: 0;
+				@media only screen and (max-width: 600px) {
+					margin-bottom: 0;
+				}
 			}
 		}
 	}
 	.social{
 		display: flex;
 		align-items: center;
+		@media only screen and (max-width: 1024px) {
+			justify-content: center;
+			width: 100%;
+			margin-top: 30px;
+		}
 		li{
 			margin-right: 20px;
 			&:last-child{

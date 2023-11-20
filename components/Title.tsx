@@ -29,6 +29,9 @@ const Wrapper = styled.div`
 	h1{
     font-size: 82px;
     letter-spacing: 4.1px;
+		@media only screen and (max-width: 600px) {
+			font-size: 52px;
+		}
 	}
 	h2{
     color: #FFF;
@@ -40,6 +43,6 @@ const Wrapper = styled.div`
 		line-height: 1.3;
 	}
 	h4{
-		
+	
 	}
 `

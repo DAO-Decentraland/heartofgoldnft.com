@@ -39,6 +39,12 @@ export default function MainMedia() {
 
 const Wrapper = styled.section`
 	margin-top: 220px;
+	@media only screen and (max-width: 1024px) {
+		margin-top: 120px;
+	}
+	@media only screen and (max-width: 600px) {
+		margin-top: 80px;
+	}
 	.item{
 		display: flex;
 		align-items: center;

@@ -101,6 +101,12 @@ export default function MainWhitelisted() {
 const Wrapper = styled.section`
 	padding-top: 260px;
 	position: relative;
+	@media only screen and (max-width: 1024px) {
+		padding-top: 120px;
+	}
+	@media only screen and (max-width: 600px) {
+		padding-top: 80px;
+	}
 	.form_block{
     width: 760px;
     height: 740px;
