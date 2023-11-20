@@ -50,6 +50,12 @@ export default function MainCommunity() {
 
 const Wrapper = styled.section`
 	margin-top: 260px;
+  @media only screen and (max-width: 1024px) {
+    margin-top: 120px;
+  }
+  @media only screen and (max-width: 600px) {
+    margin-top: 80px;
+  }
 	.scroll_line{
 		padding: 10px 0;
 		position: relative;
@@ -94,6 +100,9 @@ const Wrapper = styled.section`
 		justify-content: space-between;
 		flex-wrap: wrap;
 		margin-bottom: -20px;
+    @media only screen and (max-width: 820px) {
+	    margin-top: 80px;
+    }
 	}
 	.item{
 		width: calc(50% - 20px);
@@ -105,11 +114,21 @@ const Wrapper = styled.section`
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+	    height: 280px;
+    }
 		&:nth-child(1), &:nth-child(2){
 			left: 100px;
+      @media only screen and (max-width: 820px) {
+	      left: 0;
+      }
 		}
 		&:nth-child(3), &:nth-child(4){
 			left: -100px;
+      @media only screen and (max-width: 820px) {
+	      left: 0;
+      }
 		}
 		a{
 			display: inline-flex;
@@ -140,5 +159,8 @@ const Wrapper = styled.section`
 		left: 50%;
 		transform: translate(-50%, -50%);
 		width: 90%;
+    @media only screen and (max-width: 600px) {
+	    width: 120%;
+    }
 	}
 `

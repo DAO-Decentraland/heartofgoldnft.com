@@ -15,7 +15,7 @@ export default function GallerySorting() {
 				.catch(error => console.log(error))
 		}
 	}
-	
+
 	const onHandleChange = (e: string) => {
 		setId(e)
 		if (e.length === 0) {
@@ -30,13 +30,13 @@ export default function GallerySorting() {
 				.catch(error => console.log(error))
 		}
 	}
-	
+
 	return (
 		<Wrapper className="gallery_sorting">
 			<form onSubmit={onHandleSubmit}>
 				<button><img src="/pic/search-icon.svg" alt="Search by id"/></button>
 				<input
-					placeholder="Search by id"
+					placeholder="Search by ID"
 					min={1}
 					max={process.env.TOTAL_TOKENS}
 					type="number"

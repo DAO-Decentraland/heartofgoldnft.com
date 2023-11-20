@@ -106,6 +106,8 @@ const Wrapper = styled.section`
 	}
 	@media only screen and (max-width: 600px) {
 		padding-top: 80px;
+		margin-left: -20px;
+		margin-right: -20px;
 	}
 	.form_block{
     width: 760px;
@@ -120,6 +122,13 @@ const Wrapper = styled.section`
 		justify-content: center;
 		position: relative;
 		z-index: 10;
+    @media only screen and (max-width: 820px) {
+      width: 100%;
+    }
+    @media only screen and (max-width: 600px) {
+	    height: auto;
+	    padding: 50px 50px 80px 50px;
+    }
 		&:before{
 			content: "";
 			position: absolute;
@@ -130,6 +139,12 @@ const Wrapper = styled.section`
       border: 1px solid #B29E77;
       width: 696px;
       height: 675px;
+      @media only screen and (max-width: 820px) {
+        width: calc(100% - 40px);
+      }
+      @media only screen and (max-width: 600px) {
+	      height: calc(100% - 40px);
+      }
 		}
 	}
 	.title{
@@ -143,6 +158,9 @@ const Wrapper = styled.section`
     font-size: 20px;
     font-weight: 300;
     line-height: 140%;
+    @media only screen and (max-width: 600px) {
+	    font-size: 14px;
+    }
 	}
 	form{
 		max-width: 360px;
@@ -168,21 +186,33 @@ const Wrapper = styled.section`
 			top: 20px;
 			left: 50%;
 			transform: translateX(-50%);
+      @media only screen and (max-width: 600px) {
+	      top: 7px;
+      }
 		}
     &.bottom{
       bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
+      @media only screen and (max-width: 600px) {
+	      bottom: -2px;
+      }
     }
 		&.left{
 			left: 21px;
 			top: 50%;
 			transform: translateY(-50%);
+      @media only screen and (max-width: 600px) {
+	      left: 10px;
+      }
 		}
     &.right{
       right: 21px;
       top: 50%;
       transform: translateY(-50%);
+      @media only screen and (max-width: 600px) {
+        right: 10px;
+      }
     }
 	}
 	.left_image{
@@ -190,12 +220,32 @@ const Wrapper = styled.section`
 		left: -80px;
 		top: 0;
 		z-index: 20;
+    @media only screen and (max-width: 1024px) {
+	    transform: scale(.8);
+    }
+    @media only screen and (max-width: 820px) {
+	    transform: scale(.6);
+    }
+    @media only screen and (max-width: 768px) {
+	    display: none;
+    }
 	}
 	.right_image{
 		position: absolute;
 		right: -200px;
 		bottom: 0;
 		z-index: 20;
+    @media only screen and (max-width: 1024px) {
+	    transform: scale(.6);
+	    right: -80px;
+	    transform-origin: bottom right;
+    }
+    @media only screen and (max-width: 820px) {
+      transform: scale(.5);
+    }
+    @media only screen and (max-width: 768px) {
+	    display: none;
+    }
 	}
 	.blur_round{
 		border-radius: 50%;
@@ -212,5 +262,8 @@ const Wrapper = styled.section`
 		color: #FBBF60;
 		border: 1px solid #FBBF60;
 		padding: 10px 20px;
+    @media only screen and (max-width: 600px) {
+	    padding: 5px 10px;
+    }
 	}
 `

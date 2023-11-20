@@ -3,12 +3,18 @@ import CenterBlock from "helpers/CenterBlock";
 import Title from "components/Title";
 import mainImage from "public/pic/how-works-image.png"
 import Image from "next/image";
+import Responsive from "helpers/Responsive";
 
 export default function MainHowItWorks() {
 	return (
 		<Wrapper>
 			<CenterBlock>
 				<Title><h2>How<br/>it works</h2></Title>
+				<Responsive width={820} mobile={
+					<div className="mobile_image">
+						<Image width={293} src={mainImage} alt="How it works"/>
+					</div>
+				}/>
 				<div className="list_position">
 					<div className="item">
 						<div className="list_item">
@@ -20,9 +26,11 @@ export default function MainHowItWorks() {
 							<p>Currently, our NFTs are not available for purchase. To be among the first with access to NFT sales, get whitelisted through our official website. Once minting begins, whitelisted community members will get early access to HoG NFTs. Minting will later open to all users.</p>
 						</div>
 					</div>
-					<div className="item">
-						<Image width={293} src={mainImage} alt="How it works"/>
-					</div>
+					<Responsive width={820}>
+						<div className="item">
+							<Image width={293} src={mainImage} alt="How it works"/>
+						</div>
+					</Responsive>
 					<div className="item">
 						<div className="list_item">
 							<span>03</span>
@@ -42,6 +50,12 @@ export default function MainHowItWorks() {
 
 const Wrapper = styled.section`
 	margin-top: 250px;
+  @media only screen and (max-width: 1024px) {
+    margin-top: 120px;
+  }
+  @media only screen and (max-width: 600px) {
+    margin-top: 80px;
+  }
 	.title{
 		text-align: center;
 	}
@@ -50,17 +64,44 @@ const Wrapper = styled.section`
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+    @media only screen and (max-width: 600px) {
+	    flex-direction: column;
+	    justify-content: flex-start;
+	    align-items: flex-start;
+    }
 	}
 	.item{
     width: calc(100% / 3 - 50px);
+    @media only screen and (max-width: 820px) {
+      width: calc(100% / 2 - 50px);
+    }
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+    }
 		&:nth-child(2){
 			display: flex;
 			justify-content: center;
+      @media only screen and (max-width: 820px) {
+	      flex-direction: column;
+	      justify-content: flex-start;
+      }
+      @media only screen and (max-width: 600px) {
+	      margin-top: 60px;
+      }
 		}
+	}
+	.mobile_image{
+		display: flex;
+		justify-content: center;
+		margin-top: 80px;
 	}
 	.list_item{
 		margin-bottom: 75px;
 		min-height: 290px;
+    @media only screen and (max-width: 600px) {
+	    margin-bottom: 60px;
+	    min-height: auto;
+    }
 		span{
 			position: relative;
       color: #EFBC6A;

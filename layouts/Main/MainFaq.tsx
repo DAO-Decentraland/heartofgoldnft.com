@@ -23,6 +23,12 @@ export default function MainFaq() {
 
 const Wrapper = styled.section`
 	margin-top: 250px;
+  @media only screen and (max-width: 1024px) {
+    margin-top: 120px;
+  }
+  @media only screen and (max-width: 600px) {
+    margin-top: 120px;
+  }
 	.heading{
 		text-align: center;
 	}

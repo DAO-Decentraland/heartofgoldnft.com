@@ -45,6 +45,12 @@ export default function MainCollection() {
 
 const Wrapper = styled.section`
 	margin-top: 260px;
+  @media only screen and (max-width: 1024px) {
+    margin-top: 120px;
+  }
+  @media only screen and (max-width: 600px) {
+    margin-top: 80px;
+  }
 	.title{
 		text-align: center;
 	}

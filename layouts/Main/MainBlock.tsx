@@ -25,14 +25,11 @@ export default function MainBlock() {
 }
 
 const Wrapper = styled.section`
-	padding-top: 160px;
+	padding-top: 140px;
 	position: relative;
-	@media only screen and (max-width: 820px) {
-		padding-top: 120px;
-	}
-	@media only screen and (max-width: 600px) {
-		padding-top: 80px;
-	}
+  @media only screen and (max-width: 600px) {
+	  padding-top: 80px;
+  }
 	.center_block{
 		display: flex;
 		justify-content: space-between;
@@ -54,9 +51,12 @@ const Wrapper = styled.section`
 			justify-content: center;
 			margin-top: 80px;
 		}
+    @media only screen and (max-width: 600px) {
+	    margin-top: 40px;
+    }
 	}
 	.title{
-		@media only screen and (max-width: 600px) {
+		@media only screen and (max-width: 820px) {
 			text-align: center;
 		}
 	}
@@ -72,13 +72,16 @@ const Wrapper = styled.section`
     font-size: 20px;
     font-weight: 300;
     line-height: 160%;
-		@media only screen and (max-width: 600px) {
+		@media only screen and (max-width: 820px) {
 			text-align: center;
 		}
 	}
 	.anchor_link{
 		margin-top: 55px;
 		max-width: 320px;
+    @media only screen and (max-width: 820px) {
+	    max-width: 100%;
+    }
 	}
 	.social{
 		margin-top: 110px;
@@ -86,6 +89,7 @@ const Wrapper = styled.section`
 		align-items: center;
 		@media only screen and (max-width: 820px) {
 			margin-top: 60px;
+			justify-content: center;
 		}
 		a svg{
 			fill: #EFBC6A;

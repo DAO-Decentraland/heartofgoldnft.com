@@ -9,15 +9,7 @@ import ScrollBlock from "components/ScrollBlock";
 import {array} from "prop-types";
 import Image from "next/image";
 
-interface MainRoadmapProps {
-
-}
-
-/**
- * MainRoadmap Component
- * @constructor
- */
-export default function MainRoadmap({}: MainRoadmapProps) {
+export default function MainRoadmap() {
 	const array = [
 		{
 			"image": mainImage1,
@@ -66,11 +58,22 @@ export default function MainRoadmap({}: MainRoadmapProps) {
 const Wrapper = styled.section`
 	margin-top: 260px;
 	position: relative;
+  @media only screen and (max-width: 1024px) {
+    margin-top: 120px;
+	  margin-left: -20px;
+	  margin-right: -20px;
+  }
+  @media only screen and (max-width: 600px) {
+    margin-top: 80px;
+  }
 	.title{
 		text-align: center;
 	}
 	.scroll_block{
 		margin-top: 20px;
+    @media only screen and (max-width: 820px) {
+	    padding-left: 20px;
+    }
 	}
 	.item{
 		p{

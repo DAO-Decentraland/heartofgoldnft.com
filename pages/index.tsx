@@ -26,12 +26,12 @@ export default function Home(){
 			<MainBlock/>
 			<MainMedia/>
 			<MainWhitelisted/>
-			{/*<MainHowItWorks/>*/}
-			{/*<MainCommunity/>*/}
-			{/*<MainCollection/>*/}
-			{/*<MainRoadmap/>*/}
-			{/*<MainTeam/>*/}
-			{/*<MainFaq/>*/}
+			<MainHowItWorks/>
+			<MainCommunity/>
+			<MainCollection/>
+			<MainRoadmap/>
+			<MainTeam/>
+			<MainFaq/>
 		</>
 	)
 }

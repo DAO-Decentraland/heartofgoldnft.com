@@ -44,6 +44,9 @@ const Wrapper = styled.header`
 	.logo{
     width: 100%;
     transition: all .3s ease-in-out;
+		display: flex;
+		align-items: center;
+		line-height: 0;
 		@media only screen and (max-width: 600px) {
 			width: 55px;
 		}

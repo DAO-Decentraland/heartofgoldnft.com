@@ -25,6 +25,9 @@ const Wrapper = styled.footer`
 	position: relative;
 	padding-top: 130px;
 	padding-bottom: 55px;
+  @media only screen and (max-width: 600px) {
+	  padding-top: 80px;
+  }
 	.center_block{
 		display: flex;
 		justify-content: space-between;

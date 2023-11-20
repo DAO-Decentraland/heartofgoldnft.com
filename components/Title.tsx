@@ -36,11 +36,17 @@ const Wrapper = styled.div`
 	h2{
     color: #FFF;
     font-size: 82px;
+    @media only screen and (max-width: 600px) {
+	    font-size: 52px;
+    }
 	}
 	h3{
     font-size: 35px;
     letter-spacing: 1.5px;
 		line-height: 1.3;
+    @media only screen and (max-width: 600px) {
+	    font-size: 18px;
+    }
 	}
 	h4{
 	

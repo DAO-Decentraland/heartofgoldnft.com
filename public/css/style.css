@@ -12,6 +12,11 @@ html, body {
 	font-family: 'Graphik', sans-serif;
 }
 
+main{
+	overflow-x: hidden;
+	width: 100%;
+}
+
 a {
 	color: #FFFFFF;
 	text-decoration: none;
