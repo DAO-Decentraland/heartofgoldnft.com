@@ -2,7 +2,6 @@ import Seo from "helpers/Seo";
 import styled from "styled-components";
 import CenterBlock from "helpers/CenterBlock";
 import Title from "components/Title";
-import GalleryFiltersModal from "layouts/Gallery/GalleryFiltersModal";
 import {useEffect} from "react";
 import axios from "axios";
 import {useRouter} from "next/router";
@@ -57,7 +56,6 @@ export default function Gallery(){
 				<CenterBlock>
 					<Title className="heading"><h1>Gallery</h1></Title>
 					<GallerySorting/>
-					<GalleryFiltersModal/>
 					{
 						snap.galleryArray.result ? (
 							snap.galleryArray.result.length ? (
