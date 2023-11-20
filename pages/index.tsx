@@ -33,6 +33,7 @@ export default function Home(){
 			<Seo
 				title="Unlocking the Future of nft"
 				description="Empower your unstoppable winning streak in our groundbreaking NFT Collection, where GAMEFi meets Play-to-Earn at the ultimate crossroads."
+				image="/pic/og.jpg"
 			/>
 			<MainBlock/>
 			<MainMedia/>
