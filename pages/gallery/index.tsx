@@ -50,6 +50,7 @@ export default function Gallery(){
 			<Seo
 				title="Gallery"
 				description="Empower your unstoppable winning streak in our groundbreaking NFT Collection, where GAMEFi meets Play-to-Earn at the ultimate crossroads."
+				image="/pic/og.jpg"
 			/>
 			<GalleryModalItem/>
 			<Wrapper>
