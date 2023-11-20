@@ -5,9 +5,16 @@ import {useSnapshot} from "valtio";
 import {CollectionFilters} from "app-lib/interface/collection";
 import Responsive from "helpers/Responsive";
 import GallerySortingButtons from "components/Gallery/GallerySortingButtons";
+import {useRouter} from "next/router";
+import {useEffect} from "react";
 
 export default function GalleryFiltersModal() {
+	const {asPath} = useRouter()
 	const snap = useSnapshot(state)
+
+	useEffect(() => {
+		state.galleryFiltersModal = false
+	}, [asPath]);
 
 	const onHandleChange = (value: string, label: keyof CollectionFilters) => {
 		let filteredArray: string[] = [...snap.galleryFilters[label]];
