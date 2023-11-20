@@ -95,6 +95,9 @@ const Wrapper = styled.div`
 	opacity: 0;
 	visibility: hidden;
   transition: all .3s ease-in-out;
+  @media only screen and (max-width: 600px) {
+    background: #0D0D0D;
+  }
 	&.visible{
 		opacity: 1;
     visibility: visible;
@@ -123,7 +126,7 @@ const Wrapper = styled.div`
     background: #0D0D0D;
     padding: 35px 70px;
     overflow-y: auto;
-    z-index: 20;
+    z-index: 99999999;
     transition: all .3s ease-in-out;
     @media only screen and (max-width: 600px) {
       width: 100%;
