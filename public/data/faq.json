@@ -1,34 +1,54 @@
 [
 	{
-		"title": "How to mint a Heart of Gold (HoG) NFT?",
-		"description": "<p>Getting hold of a Heart of Gold (HoG) NFT lottery ticket is simple. Follow these steps for a successful minting experience:</p><ul><li>Check your browser and verify that you are on our official website: <a href=\"https://heartofgoldnft.com\" target=\"_blank\" rel=\"noreferrer\">heartofgoldnft.com</a> - this is important to prevent phishing.</li><li>Press the \"Connect Wallet\" button at the top right corner of our website to connect your wallet (MetaMask, Binance Wallet, WalletConnect, Coinbase Wallet). Please ensure you are linked to BNB Chain (Binance Smart Chain).</li><li>Once your wallet is connected, enter the amount of HoG lottery tickets you would like to mint and click on \"Mint\".</li><li>Your wallet will open up a confirmation screen on a separate tab. Check the details and proceed by confirming the transaction.</li><li>You will be automatically redirected to our website, and your HoG NFT tickets will appear in your personal account.</li></ul>"
-	},
-	{
 		"title": "Who is Deus ex Machina?",
-		"description": "<p>Deus ex Machina is a mysterious entity trying to take a physical form, but making that happen requires tickets. The stones featured on the NFT tickets provide energy to DeM. More details on the essence of Deus ex Machina will be disclosed as the project develops.</p>"
+		"description": "<p>Deus ex Machina is an enigmatic force intricately woven into the fabric of the Heart of Gold smart contract, attempting to achieve a physical form, and Heart of Gold NFTs are key to making this a reality. The precious stones embedded in each NFT serve as a source of power for DeM. As the project unfolds, further information about the true nature of Deus ex Machina will be revealed.</p>"
 	},
 	{
-		"title": "How can I sell my ticket to Deus?",
-		"description": "<p>Once the entire Heart of Gold collection is minted, this option will become available on your personal account. Remember that selling your ticket to Deus ex Machina will result in a permanent burning operation. The asset will no longer be available for re-purchase on the secondary market.</p>"
+		"title": "How can I sell my HoG NFTs to Deus?",
+		"description": "<p>Once the entire Heart of Gold collection is minted, the option to sell your NFTs will be enabled in your personal account. Please note, if you choose to sell your NFT to Deus ex Machina, the transaction is final, resulting in the NFT being permanently burned. This means you won't have the option to sell it on the secondary market in the future, and it will also no longer be valid as an entry ticket for the Super Lottery.</p>"
 	},
 	{
-		"title": "How much can I sell my ticket for?",
-		"description": "<p>The value that Deus ex Machina offers you depends on the rarity of your NFT lottery ticket. DeM can pay up to 100X the original minting price based on the unique attributes of your tickets.</p>"
+		"title": "How much can I sell my HoG NFT for?",
+		"description": "<p>The exact price that Deus ex Machina will offer for your NFT can only be known once you sell it to him. The only method to discover the value is to take a chance with Deus and burn your NFT. Rest assured, your expectations are likely to be met, as he may offer up to 100 times the initial price you paid for your NFT. And here's a little insider tip: there's a high chance you could double, quintuple, or even surpass your initial investment.</p>"
 	},
 	{
-		"title": "What is the Super Lottery, and how to participate in it?",
-		"description": "<p>Super Lottery is a prize draw available to all HoG holders. This special lottery happens once every several months and offers exceptionally high rewards for winners. Every holder that hasn't sold tickets to Deus ex Machina or in the secondary market can join in.</p>"
+		"title": "What does the price Deus ex Machina will offer for my NFT depend on?",
+		"description": "<p>The selling price for your Heart of Gold (HoG) NFT when offered by Deus ex Machina will vary according to its rarity. Depending on the unique characteristics of your NFT, DeM might offer up to 100 times the initial mint price. The rarity of each NFT is calculated based on a distinct blend of 37 traits, which fall under 7 categories: metal type, augmentation, color of augmentation, pattern, gemstone, associated planet, and star type. These factors collectively determine the rarity and consequently the value of your NFT.</p>"
 	},
 	{
-		"title": "Will you be running mintings on other blockchains?",
-		"description": "Yes. According to our roadmap, the first minting even is held on BNB Chain (Binance Smart Chain), and we are working on bridges with networks such as Ethereum, Solana, Polygon, Tron, and others. Follow us on social media to stay tuned for the latest updates."
+		"title": "How to Mint a Heart of Gold (HoG) NFT?",
+		"description": "<p><span style=font-weight:400>Getting your Heart of Gold (HoG) NFT is easy. Just follow these simple steps for a smooth minting process</span><span style=font-weight:400>:</span><ol><li aria-level=1 style=font-weight:400><span style=font-weight:400>Make sure you're on our official website at heartofgold.com to avoid phishing scams.</span><li aria-level=1 style=font-weight:400><span style=font-weight:400>Click on the \"Connect Wallet\" button located at the top right corner of our homepage to link your Metamask wallet. It's essential that you're connected to the BNB Chain (Binance Smart Chain).</span><li aria-level=1 style=font-weight:400><span style=font-weight:400>After your wallet is successfully connected, specify the number of HoG NFTs you wish to mint and select \"Mint.\"</span><li aria-level=1 style=font-weight:400><span style=font-weight:400>Metamask will open up a confirmation screen in a new tab. Review the transaction details carefully and give your approval to proceed.</span><li aria-level=1 style=font-weight:400><span style=font-weight:400>Post-confirmation, you'll be redirected back to our website where your newly minted HoG NFTs will be visible in your personal account.</span></ol>"
 	},
 	{
-		"title": "I saw a similar project to yours. How can I be sure it's not a scam?",
-		"description": "<p>Unfortunately, scammers are everywhere these days. To stay on the safe side, we recommend verifying whether you're navigating the correct website (heartofgoldnft.com) and reading the feeds of our official <a href=\"https://linktr.ee/heartofgoldnft\" target=\"_blank\" rel=\"noreferrer\">social media profiles.</a> Beware of fakes. Only HEART of GOLD can guarantee that you will receive your winnings.</p>"
+		"title": "How to Install a Metamask Wallet?",
+		"description": "<ol><li aria-level=1 style=font-weight:400><span style=font-weight:400>Open the \"Chrome Web Store Extensions\" page.</span><li aria-level=1 style=font-weight:400><span style=font-weight:400>Search MetaMask. Click the \"Add to Chrome\" button. Once installation is complete, press \"Add extension\".</span><li aria-level=1 style=font-weight:400><span style=font-weight:400>A new tab will appear. Click \"Get Started\" and then \"Create a New Wallet\".</span><li aria-level=1 style=font-weight:400><span style=font-weight:400>Set up a password for Metamask.</span><li aria-level=1 style=font-weight:400><span style=font-weight:400>If it's your first time with crypto, watch the video on keeping your wallet safe. Remember to write down your secret recovery phrase and save it somewhere secure. Click \"Save Seed Words as File\" to keep a digital copy. This phrase is key to accessing your wallet.</span><li aria-level=1 style=font-weight:400><span style=font-weight:400>Follow all the steps and you'll have your Metamask wallet ready. Well done!</span><li aria-level=1 style=font-weight:400><span style=font-weight:400>Your new wallet will start on the Ethereum network. To use it with the Heart of Gold site and to mint, you need to add the BNB Chain (Binance Smart Chain) network to Metamask.</span></ol>"
 	},
 	{
-		"title": "Do you have special promotional activities planned? (quizzes, draws, giveaways)",
-		"description": "<p>Yes. Our team is constantly working on different mechanics to engage with the community and give out exciting prizes through regular giveaways, quizzes, and special competitions. To participate, <a href=\"https://discord.gg/UmVjNZ4858\" target=\"_blank\" rel=\"noreferrer\">join our discord server.</a></p>"
+		"title": "How to connect your MetaMask to BNB Chain (Binance Smart Chain)?",
+		"description": "<ol><li aria-level=1 style=font-weight:400><span style=font-weight:400>Click on your previously installed Metamask Google Chrome extension at the top right corner of the Google Chrome browser. Open and log in to your MetaMask wallet. Find the section \"Settings\" and click on it.</span><li aria-level=1 style=font-weight:400><span style=font-weight:400>Scroll down and select \"Networks\"</span><li aria-level=1 style=font-weight:400><span style=font-weight:400>Press the \"Add Network\" button.</span><li aria-level=1 style=font-weight:400><span style=font-weight:400>A new screen will open. Input the details below and click \"Save\":</span></ol><ul><li aria-level=1 style=font-weight:400><span style=font-weight:400>Network Name: Smart Chain</span><li aria-level=1 style=font-weight:400><span style=font-weight:400>New RPC URL: https://bsc-dataseed.binance.org/</span><li aria-level=1 style=font-weight:400><span style=font-weight:400>ChainID: 56</span><li aria-level=1 style=font-weight:400><span style=font-weight:400>Symbol: BNB</span><li aria-level=1 style=font-weight:400><span style=font-weight:400>Block Explorer URL: </span><a href=https://bscscan.com><span style=font-weight:400>https://bscscan.com</span></a></ul><ol start=5><li><span style=font-weight:400>Your Metamask wallet is now successfully connected to the BNB Chain (Binance Smart Chain) network. To participate in the Heart of Gold, you should top up your wallet with Binance Coin (BNB).</span></ol>"
+	},
+	{
+		"title": "How to send Binance Coin to Metamask?",
+		"description": "<p><span style=\"font-weight: 400;\">Click </span><a href=\"https://www.followchain.org/send-bnb-to-metamask/\" target=\"_blank\"><span style=\"font-weight: 400;\">here</span></a><span style=\"font-weight: 400;\"> to learn how to send Binance Coin (BNB) to your Metamask BNB Chain (Binance Smart Chain) wallet. </span></p>"
+	},
+	{
+		"title": "How to send your HoG NFTs to Metamask?",
+		"description": "<p><span style=\"font-weight: 400;\">Click </span><a href=\"https://metamask.zendesk.com/hc/en-us/articles/360058238591-NFT-tokens-in-your-MetaMask-wallet\" target=\"_blank\"><span style=\"font-weight: 400;\">here</span></a><span style=\"font-weight: 400;\"> to learn how to send Heart of Gold (HoG) NFTs to your Metamask BNB Chain (Binance Smart Chain) wallet. For this operation, make sure to use Metamask on your mobile device.</span></p>"
+	},
+	{
+		"title": "What is the Super Lottery, and how can I participate in it?",
+		"description": "<p>The Super Lottery is a members-only prize draw that stands out for offering HoG NFT holders unbelievably high reward coefficients. Occurring once every several months, this special event is accessible to all HoG NFT holders who have not sold their tickets to Deus ex Machina or on the secondary market, providing them with an opportunity to win exceptionally high rewards.</p>"
+	},
+	{
+		"title": "Will you be conducting minting on other blockchains?",
+		"description": "<p><span style=\"font-weight: 400;\">Yes, our initial minting event is taking place on the BNB Chain (Binance Smart Chain), in line with our roadmap. We are in the process of creating bridges to other networks, such as Ethereum, Solana, Polygon, and Tron, among others. However, we're not ready to unveil all of our plans just yet. Stay connected with </span><a href=\"https://linktr.ee/heartofgoldnft\"><span style=\"font-weight: 400;\">our social media </span></a><span style=\"font-weight: 400;\">to catch the latest updates as they are announced.</span></p>"
+	},
+	{
+		"title": "I've come across a project similar to yours. How can I ensure it's not a scam?",
+		"description": "<p><span style=\"font-weight: 400;\">Unfortunately, scams are all too common nowadays. For your safety,&nbsp; we recommend verifying whether you're navigating the correct website (heartofgold.com) and reading the feeds of our official </span><a href=\"https://linktr.ee/heartofgoldnft\"><span style=\"font-weight: 400;\">social media profiles</span></a><span style=\"font-weight: 400;\">. Beware of fakes. Only Heart of Gold can assure you that your winnings will be securely delivered.</span></p>"
+	},
+	{
+		"title": "Do you have any special promotional activities planned, such as quizzes, draws, or giveaways?",
+		"description": "<p><span style=\"font-weight: 400;\">Absolutely. Our team is dedicated to creating various engaging activities for our community, including regular giveaways, quizzes, and unique contests, all offering enticing prizes. To take part, we invite you to join our </span><a href=\"https://discord.gg/UmVjNZ4858\"><span style=\"font-weight: 400;\">Discord server</span></a><span style=\"font-weight: 400;\">.</span><span style=\"font-weight: 400;\"><br /></span></p>"
 	}
 ]
