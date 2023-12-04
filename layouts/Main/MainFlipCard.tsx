@@ -105,6 +105,15 @@ const Wrapper = styled.div`
 	.slider_item{
 		position: relative;
 		padding: 0 20px;
+    @media only screen and (max-width: 1024px) {
+	    padding: 0 80px;
+    }
+    @media only screen and (max-width: 820px) {
+      padding: 0 40px; 
+    }
+    @media only screen and (max-width: 600px) {
+	    padding: 0 120px;
+    }
 	}
 	.bottom_flip{
 		position: relative;
