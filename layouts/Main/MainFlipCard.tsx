@@ -112,7 +112,7 @@ const Wrapper = styled.div`
       padding: 0 40px; 
     }
     @media only screen and (max-width: 600px) {
-	    padding: 0 120px;
+	    padding: 0 100px;
     }
 	}
 	.bottom_flip{
@@ -138,10 +138,20 @@ const Wrapper = styled.div`
 			transform: translateX(-50%);
 			padding: 20px 25px;
 			justify-content: center;
+      @media only screen and (max-width: 600px) {
+	      padding: 10px 20px;
+	      font-size: 30px;
+	      height: 70px;
+        width: 190px;
+	      top: 75px;
+      }
 		}
 		span{
       font-size: 35px;
 			margin: 0 20px;
+      @media only screen and (max-width: 600px) {
+	      font-size: 25px;
+      }
 		}
 	}
 `
