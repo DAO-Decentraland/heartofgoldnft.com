@@ -48,9 +48,6 @@ const Wrapper = styled.section`
 	.item{
 		display: flex;
 		align-items: center;
-    @media only screen and (max-width: 600px) {
-      width: 230px;
-    }
 		a{
 			display: flex;
 			align-items: center;
