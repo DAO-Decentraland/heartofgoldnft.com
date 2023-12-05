@@ -104,6 +104,9 @@ const Wrapper = styled.section`
 	.heading{
 		display: flex;
 		align-items: center;
+    @media only screen and (max-width: 600px) {
+	    justify-content: center;
+    }
 		a{
 			margin-left: 5px;
 			line-height: 0;

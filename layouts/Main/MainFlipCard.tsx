@@ -51,6 +51,7 @@ export default function MainFlipCard() {
 						array.map((item, index) => {
 							return (
 								<div
+									onClick={() => setIsFlipped(!isFlipped)}
 									onMouseEnter={() => setIsFlipped(true)}
 									onMouseLeave={() => setIsFlipped(false)}
 									className="slider_item" key={index}>
