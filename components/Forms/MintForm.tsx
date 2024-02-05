@@ -59,7 +59,7 @@ export default function MintForm({value, onClick}: MintFormProps) {
 		<Wrapper>
 			<form className="mint_form" onSubmit={onHandleSubmit}>
 				<CustomSelect array={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]} value={value} onClick={(e) => onClick(e as number)}/>
-				<Button>Mint</Button>
+				<Button disabled={Boolean(account.chainId !== (process.env.MODE === "production" ? 56 : 97))}>Mint</Button>
 			</form>
 		</Wrapper>
 	)
