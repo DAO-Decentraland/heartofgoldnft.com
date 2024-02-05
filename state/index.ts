@@ -6,6 +6,7 @@ const state = proxy({
 	utm: null as string | null,
 	totalSupply: 0,
 	tokenPrice: 0.3,
+	mintError: null as string | null,
 	...stateGallery
 });
 

@@ -8,7 +8,6 @@ import {useState} from "react";
 import { useWriteContract } from 'wagmi'
 import {getABIContract} from "utils/functions";
 import { parseEther } from 'ethers';
-import Modal from "components/Modal";
 
 interface MintFormProps {
 	value: number
@@ -25,11 +24,10 @@ export default function MintForm({value, onClick}: MintFormProps) {
 	const { writeContractAsync } = useWriteContract()
 	const [status, setStatus] = useState("mint")
 	const [transaction, setTransaction] = useState("")
-	const [error, setError] = useState<null | string>(null)
 
 	const onHandleSubmit = async (e: { preventDefault: () => void; }) => {
 		e.preventDefault()
-		setError(null)
+		state.mintError = null
 		try {
 			const transaction = await writeContractAsync(
 				{
@@ -42,25 +40,16 @@ export default function MintForm({value, onClick}: MintFormProps) {
 			console.log(transaction)
 		} catch (error) {
 			// @ts-ignore
-			setError(error?.shortMessage)
-			setStatus("error")
+			state.mintError = error?.shortMessage
 		}
 	}
 	return (
-		<>
-			<Modal
-				width={600}
-				visible={Boolean(error)}
-				onClick={() => setError(null)}>
-				<p>{error}</p>
-			</Modal>
-			<Wrapper>
-				<form className="mint_form" onSubmit={onHandleSubmit}>
-					<CustomSelect array={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]} value={value} onClick={(e) => onClick(e as number)}/>
-					<Button disabled={Boolean(account.chainId !== (process.env.MODE === "production" ? 56 : 97))}>Mint</Button>
-				</form>
-			</Wrapper>
-		</>
+		<Wrapper>
+			<form className="mint_form" onSubmit={onHandleSubmit}>
+				<CustomSelect array={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]} value={value} onClick={(e) => onClick(e as number)}/>
+				<Button disabled={Boolean(account.chainId !== (process.env.MODE === "production" ? 56 : 97))}>Mint</Button>
+			</form>
+		</Wrapper>
 	)
 }
 
