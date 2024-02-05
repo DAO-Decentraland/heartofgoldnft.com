@@ -4,7 +4,6 @@ import MainFaq from "layouts/Main/MainFaq";
 import MainTeam from "layouts/Main/MainTeam";
 import MainHowItWorks from "layouts/Main/MainHowItWorks";
 import MainRoadmap from "layouts/Main/MainRoadmap";
-import MainWhitelisted from "layouts/Main/MainWhitelisted";
 import MainMedia from "layouts/Main/MainMedia";
 import MainCollection from "layouts/Main/MainCollection";
 import MainCommunity from "layouts/Main/MainCommunity";
@@ -12,6 +11,7 @@ import {useEffect} from "react";
 import {useRouter} from "next/router";
 import {state} from "state";
 import {scroller} from "react-scroll";
+import MainMint from "layouts/Main/MainMint";
 
 export default function Home(){
 	const {query} = useRouter()
@@ -37,7 +37,7 @@ export default function Home(){
 			/>
 			<MainBlock/>
 			<MainMedia/>
-			<MainWhitelisted/>
+			<MainMint/>
 			<MainHowItWorks/>
 			<MainCommunity/>
 			<MainCollection/>

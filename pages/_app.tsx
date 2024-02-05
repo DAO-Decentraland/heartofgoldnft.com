@@ -6,10 +6,11 @@ import MobileNav from "components/MobileNav";
 import GalleryFiltersModal from "layouts/Gallery/GalleryFiltersModal";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Web3Provider from "helpers/Web3Provider";
 
 export default function MyApp({Component, pageProps}: AppProps) {
   return (
-    <>
+    <Web3Provider>
       <GalleryFiltersModal/>
       <MobileNav/>
       <Header/>
@@ -17,6 +18,6 @@ export default function MyApp({Component, pageProps}: AppProps) {
         <Component {...pageProps} />
       </main>
       <Footer/>
-    </>
+    </Web3Provider>
   )
 }
