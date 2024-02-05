@@ -30,10 +30,10 @@ export default function GalleryCard({data}: {data: Collection}) {
 							<ul className="list">
 								<li><p>Rarity rank</p><p>{numberFormat(data.rank)}</p></li>
 								<li><p>Metal</p><p>{data.metal}</p></li>
-								<li><p>Suit</p><p>{data.augmentation}</p></li>
+								<li><p>Augmentation</p><p>{data.augmentation}</p></li>
 								<li><p>Stone</p><p>{data.stone}</p></li>
-								<li><p>Figure</p><p>{data.pattern}</p></li>
-								<li><p>Cosmos</p><p>{data.planet}</p></li>
+								<li><p>Pattern</p><p>{data.pattern}</p></li>
+								<li><p>Planet</p><p>{data.planet}</p></li>
 								<li><p>Star</p><p>{data.star}</p></li>
 							</ul>
 						</div>

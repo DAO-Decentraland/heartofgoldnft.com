@@ -18,8 +18,8 @@ const stateGallery = proxy({
 		metal: [],
 		augmentation: [],
 		color: [],
-		pattern: [],
 		stone: [],
+		pattern: [],
 		planet: [],
 		star: []
 	} as CollectionFilters,

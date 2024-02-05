@@ -5,9 +5,14 @@
 		"label": "metal"
 	},
 	{
-		"title": "Suit",
+		"title": "Augmentation",
 		"array": ["Hand", "Eye", "Engine", "Brain", "Heart"],
 		"label": "augmentation"
+	},
+	{
+		"title": "Color",
+		"array": ["Bronze", "Copper", "Silver", "Gold"],
+		"label": "color"
 	},
 	{
 		"title": "Stone",
@@ -15,12 +20,12 @@
 		"label": "stone"
 	},
 	{
-		"title": "Figure",
-		"array": ["Square", "Circle", "Rays", "Pyramid"],
+		"title": "Pattern",
+		"array": ["Square", "Circle", "Rays", "Pyramid", "None"],
 		"label": "pattern"
 	},
 	{
-		"title": "Cosmos",
+		"title": "Planet",
 		"array": ["Earth", "Mercury", "Venus", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "None"],
 		"label": "planet"
 	},

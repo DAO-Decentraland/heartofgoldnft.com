@@ -16,7 +16,7 @@ export default class MyDocument extends Document {
           <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png"/>
           <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png"/>
           <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png"/>
-          <link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png"/>
+          <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png"/>
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/>
           <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png"/>
           <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/>
@@ -24,10 +24,10 @@ export default class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#ffffff"/>
           <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png"/>
           <meta name="theme-color" content="#1D1D1D"/>
-          <script dangerouslySetInnerHTML={{__html: `!function(e,t,a,n,g){e[n]=e[n]||[],e[n].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});var m=t.getElementsByTagName(a)[0],r=t.createElement(a);r.async=!0,r.src="https://www.googletagmanager.com/gtm.js?id=GTM-NTRGKQC",m.parentNode.insertBefore(r,m)}(window,document,"script","dataLayer");`}}/>
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-V6MHFERYSM"/>
+          <script dangerouslySetInnerHTML={{__html: `function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-V6MHFERYSM");`}}/>
         </Head>
         <body>
-        <noscript dangerouslySetInnerHTML={{__html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTRGKQC" height="0" width="0" style="display:none;visibility:hidden"></iframe>`}}/>
         <Main/>
         <NextScript />
         </body>

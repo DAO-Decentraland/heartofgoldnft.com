@@ -3,8 +3,7 @@ import CenterBlock from "helpers/CenterBlock";
 import Title from "components/Title";
 import AnchorLink from "components/AnchorLink";
 import Social from "components/Social";
-import mainImage from "public/pic/main-image.png"
-import Image from "next/image";
+import MainFlipCard from "layouts/Main/MainFlipCard";
 
 export default function MainBlock() {
 	return (
@@ -16,9 +15,7 @@ export default function MainBlock() {
 					<AnchorLink to="white_list_form">Join the whitelist</AnchorLink>
 					<Social/>
 				</div>
-				<div className="image">
-					<Image width={713} src={mainImage} alt="Unlocking the Future of nft"/>
-				</div>
+				<MainFlipCard/>
 			</CenterBlock>
 		</Wrapper>
 	)
@@ -39,21 +36,6 @@ const Wrapper = styled.section`
 			justify-content: flex-start;
 			align-items: flex-start;
 		}
-	}
-	.image{
-		max-width: 713px;
-		width: 100%;
-		margin-left: 80px;
-		@media only screen and (max-width: 820px) {
-			margin-left: 0;
-			max-width: 100%;
-			display: flex;
-			justify-content: center;
-			margin-top: 80px;
-		}
-    @media only screen and (max-width: 600px) {
-	    margin-top: 40px;
-    }
 	}
 	.title{
 		@media only screen and (max-width: 820px) {

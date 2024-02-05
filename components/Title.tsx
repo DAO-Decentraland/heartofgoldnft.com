@@ -41,7 +41,7 @@ const Wrapper = styled.div`
     }
 	}
 	h3{
-    font-size: 35px;
+    font-size: 30px;
     letter-spacing: 1.5px;
 		line-height: 1.3;
     @media only screen and (max-width: 600px) {

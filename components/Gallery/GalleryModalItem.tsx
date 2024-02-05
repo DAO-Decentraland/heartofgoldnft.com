@@ -19,10 +19,10 @@ export default function GalleryModalItem() {
 					<ul className="modal_list">
 						<li><p>Rarity rank</p><p>{numberFormat(snap.galleryModalData?.rank)}</p></li>
 						<li><p>Metal</p><p>{snap.galleryModalData?.metal}</p></li>
-						<li><p>Suit</p><p>{snap.galleryModalData?.augmentation}</p></li>
+						<li><p>Augmentation</p><p>{snap.galleryModalData?.augmentation}</p></li>
 						<li><p>Stone</p><p>{snap.galleryModalData?.stone}</p></li>
-						<li><p>Figure</p><p>{snap.galleryModalData?.pattern}</p></li>
-						<li><p>Cosmos</p><p>{snap.galleryModalData?.planet}</p></li>
+						<li><p>Pattern</p><p>{snap.galleryModalData?.pattern}</p></li>
+						<li><p>Planet</p><p>{snap.galleryModalData?.planet}</p></li>
 						<li><p>Star</p><p>{snap.galleryModalData?.star}</p></li>
 					</ul>
 				</div>

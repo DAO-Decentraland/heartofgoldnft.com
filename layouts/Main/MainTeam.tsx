@@ -17,7 +17,14 @@ export default function MainTeam() {
 									<div className="image">
 										<Image src={item.image} alt={item.title} width={280} height={280}/>
 									</div>
-									<h4>{item.title}</h4>
+									<div className="heading">
+										<h4>{item.title}</h4>
+										{item.linkedin && (
+											<a href={item.linkedin} target="_blank" rel="noreferrer">
+												<img src="/pic/social/linkedin.svg" alt="Linkedin"/>
+											</a>
+										)}
+									</div>
 									<p className="label">{item.label}</p>
 									<p className="description">{item.description}</p>
 								</div>
@@ -93,6 +100,17 @@ const Wrapper = styled.section`
     @media only screen and (max-width: 820px) {
 	    text-align: center;
     }
+	}
+	.heading{
+		display: flex;
+		align-items: center;
+    @media only screen and (max-width: 600px) {
+	    justify-content: center;
+    }
+		a{
+			margin-left: 5px;
+			line-height: 0;
+		}
 	}
 	h4{
     color: #EFBC6A;

@@ -8,6 +8,7 @@ import mainImage4 from "public/pic/roadmap/roadmap-4.png"
 import ScrollBlock from "components/ScrollBlock";
 import {array} from "prop-types";
 import Image from "next/image";
+import Responsive from "helpers/Responsive";
 
 export default function MainRoadmap() {
 	const array = [
@@ -32,25 +33,37 @@ export default function MainRoadmap() {
 			"content_width": 417
 		}
 	]
+
+	const RenderScrollBlock = () => {
+		return (
+			<ScrollBlock scrollVisible={true}>
+				{
+					array.map((item, index) => {
+						return (
+							<div className="item" style={{width: `${item.content_width}px`}} key={index}>
+								<div className="scroll_item">
+									<Image src={item.image} width={item.content_width} alt={`slider image ${index + 1}`}/>
+									<p className="description">{item.description}</p>
+								</div>
+							</div>
+						)
+					})
+				}
+			</ScrollBlock>
+		)
+	}
+
 	return (
 		<Wrapper id="road_map">
 			<CenterBlock>
 				<Title><h2>Roadmap</h2></Title>
-				<ScrollBlock>
-					{
-						array.map((item, index) => {
-							return (
-								<div className="item" style={{width: `${item.content_width}px`}} key={index}>
-									<div className="scroll_item">
-										<Image src={item.image} width={item.content_width} alt={`slider image ${index + 1}`}/>
-										<p className="description">{item.description}</p>
-									</div>
-								</div>
-							)
-						})
-					}
-				</ScrollBlock>
+				<Responsive width={1730}>
+					<RenderScrollBlock/>
+				</Responsive>
 			</CenterBlock>
+			<Responsive width={1730} mobile={
+				<RenderScrollBlock/>
+			}/>
 		</Wrapper>
 	)
 }
@@ -71,8 +84,8 @@ const Wrapper = styled.section`
 	}
 	.scroll_block{
 		margin-top: 20px;
-    @media only screen and (max-width: 820px) {
-	    padding-left: 20px;
+    @media only screen and (max-width: 1730px) {
+	   padding: 0 20px 40px 20px;
     }
 	}
 	.item{

@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import CenterBlock from "helpers/CenterBlock";
 import Title from "components/Title";
-import mainImage from "public/pic/how-works-image.png"
-import Image from "next/image";
 import Responsive from "helpers/Responsive";
 
 export default function MainHowItWorks() {
@@ -12,7 +10,10 @@ export default function MainHowItWorks() {
 				<Title><h2>How<br/>it works</h2></Title>
 				<Responsive width={820} mobile={
 					<div className="mobile_image">
-						<Image width={293} src={mainImage} alt="How it works"/>
+						<video autoPlay={true} muted={true} loop={true} playsInline>
+							<source src="/video/main.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/>
+							<source src="/video/main.webm" type='video/webm; codecs="vp8, vorbis"'/>
+						</video>
 					</div>
 				}/>
 				<div className="list_position">
@@ -28,7 +29,10 @@ export default function MainHowItWorks() {
 					</div>
 					<Responsive width={820}>
 						<div className="item">
-							<Image width={293} src={mainImage} alt="How it works"/>
+							<video autoPlay={true} muted={true} loop={true} playsInline>
+								<source src="/video/main.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/>
+								<source src="/video/main.webm" type='video/webm; codecs="vp8, vorbis"'/>
+							</video>
 						</div>
 					</Responsive>
 					<div className="item">
@@ -140,5 +144,8 @@ const Wrapper = styled.section`
     font-size: 26px;
     font-weight: 300;
     line-height: 150%;
+	}
+	video{
+    width: 293px;
 	}
 `

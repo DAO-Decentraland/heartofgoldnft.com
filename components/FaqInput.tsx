@@ -100,7 +100,13 @@ const Wrapper = styled.div`
         margin: 20px 0;
       }
     }
-    li {
+	  ol{
+		  padding-left: 23px;
+      @media only screen and (max-width: 600px) {
+	      padding-left: 16px;
+      }
+	  }
+    ul li{
       margin-bottom: 15px;
       padding-left: 26px;
       position: relative;
