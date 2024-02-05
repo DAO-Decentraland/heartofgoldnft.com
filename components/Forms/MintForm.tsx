@@ -18,11 +18,11 @@ interface MintFormProps {
  * @constructor
  */
 export default function MintForm({value, onClick}: MintFormProps) {
-	const account = useAccount()
 	const snap = useSnapshot(state)
+	const account = useAccount()
+	const {writeContract} = useWriteContract()
 	const [status, setStatus] = useState("mint")
 	const [transaction, setTransaction] = useState("")
-	const {writeContract} = useWriteContract()
 	const onHandleSubmit = async (e: { preventDefault: () => void; }) => {
 		e.preventDefault()
 		try {
