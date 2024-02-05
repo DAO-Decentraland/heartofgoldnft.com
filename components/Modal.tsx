@@ -5,17 +5,18 @@ interface ModalProps {
 	visible: boolean
 	onClick: (value: boolean) => void
 	children: ReactNode
+	width?: number
 }
 
 /**
  * Modal Component
  * @constructor
  */
-export default function Modal({visible, onClick, children}: ModalProps) {
+export default function Modal({visible, onClick, children, width = 900}: ModalProps) {
 	return (
 		visible ? (
 			<Wrapper>
-				<div className="modal">
+				<div style={{maxWidth: width}} className="modal">
 					<button onClick={() => onClick(false)} className="close_button">close <img src="/pic/close-icon.svg" alt="close"/></button>
 					<div className="modal_content">{children}</div>
 				</div>
@@ -38,7 +39,6 @@ const Wrapper = styled.div`
 	.modal{
 		position: relative;
 		z-index: 20;
-		max-width: 900px;
 		width: calc(100% - 40px);
 		border-radius: 30px;
 		background: #0D0D0D;

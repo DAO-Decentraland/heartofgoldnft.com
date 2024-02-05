@@ -6,7 +6,9 @@ import {useSnapshot} from "valtio";
 import {state} from "state";
 import {useState} from "react";
 import { useWriteContract } from 'wagmi'
-import {parseEther} from "viem";
+import {getABIContract} from "utils/functions";
+import { parseEther } from 'ethers';
+import Modal from "components/Modal";
 
 interface MintFormProps {
 	value: number
@@ -20,48 +22,45 @@ interface MintFormProps {
 export default function MintForm({value, onClick}: MintFormProps) {
 	const snap = useSnapshot(state)
 	const account = useAccount()
-	const {writeContract} = useWriteContract()
+	const { writeContractAsync } = useWriteContract()
 	const [status, setStatus] = useState("mint")
 	const [transaction, setTransaction] = useState("")
+	const [error, setError] = useState<null | string>(null)
+
 	const onHandleSubmit = async (e: { preventDefault: () => void; }) => {
 		e.preventDefault()
+		setError(null)
 		try {
-			const transaction = writeContract({
+			const transaction = await writeContractAsync(
+				{
 				address: process.env.CONTRACT as any,
-				abi: [{
-					"inputs": [
-						{
-							"internalType": "address",
-							"name": "_to",
-							"type": "address"
-						},
-						{
-							"internalType": "uint256",
-							"name": "_amount",
-							"type": "uint256"
-						}
-					],
-					"name": "mint",
-					"outputs": [],
-					"stateMutability": "payable",
-					"type": "function"
-				}],
+				abi: getABIContract(),
 				functionName: "mint",
-				args: [account.address, parseEther(String(value * snap.tokenPrice))],
+				args: [account.address, value],
+				value: parseEther(String(value * snap.tokenPrice)),
 			})
 			console.log(transaction)
 		} catch (error) {
-			console.log(error)
+			// @ts-ignore
+			setError(error?.shortMessage)
 			setStatus("error")
 		}
 	}
 	return (
-		<Wrapper>
-			<form className="mint_form" onSubmit={onHandleSubmit}>
-				<CustomSelect array={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]} value={value} onClick={(e) => onClick(e as number)}/>
-				<Button disabled={Boolean(account.chainId !== (process.env.MODE === "production" ? 56 : 97))}>Mint</Button>
-			</form>
-		</Wrapper>
+		<>
+			<Modal
+				width={600}
+				visible={Boolean(error)}
+				onClick={() => setError(null)}>
+				<p>{error}</p>
+			</Modal>
+			<Wrapper>
+				<form className="mint_form" onSubmit={onHandleSubmit}>
+					<CustomSelect array={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]} value={value} onClick={(e) => onClick(e as number)}/>
+					<Button disabled={Boolean(account.chainId !== (process.env.MODE === "production" ? 56 : 97))}>Mint</Button>
+				</form>
+			</Wrapper>
+		</>
 	)
 }
 

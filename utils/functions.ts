@@ -1,3 +1,6 @@
+import prodABI from "utils/ABI/prod.json"
+import devABI from "utils/ABI/dev.json"
+
 export function API(api: string) {
 	return `${process.env.WEBSITE}${api}`
 }
@@ -17,4 +20,8 @@ export async function checkTransaction(transaction: any) {
 		status: false,
 		hash: transaction.hash
 	}
+}
+
+export function getABIContract() {
+	return process.env.MODE === "production" ? prodABI : devABI
 }
