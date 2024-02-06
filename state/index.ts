@@ -8,6 +8,7 @@ const state = proxy({
 	tokenPrice: 0.3 as number,
 	mintError: null as string | null,
 	mintStart: false as undefined | boolean | unknown,
+	mintOver: false as boolean,
 	...stateGallery
 });
 

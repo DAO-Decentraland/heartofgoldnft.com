@@ -8,7 +8,7 @@ import axios from "axios";
 import numberFormat from "helpers/numberFormat";
 import ProgressBar from "components/ProgressBar";
 import MintForm from "components/Forms/MintForm";
-import {getABIContract} from "utils/functions";
+import {checkMintOver, getABIContract} from "utils/functions";
 import {formatEther} from "viem";
 import {state} from "state";
 import {useSnapshot} from "valtio";
@@ -29,12 +29,19 @@ export default function MainMint() {
 	}, [tokenPrice]);
 
 	useEffect(() => {
-		axios.get("/api/total").then(r => state.totalSupply = r.data.data.total)
+		axios.get("/api/total").then(r => {
+			checkMintOver(r.data.data.total)
+			state.totalSupply = r.data.data.total
+		})
 	}, []);
 
 	return (
 		<Wrapper>
-			<Title><h2>MINTING<br/>IS NOW LIVE</h2></Title>
+			{snap.mintOver ? (
+				<Title><h2>MINTING<br/>IS OVER</h2></Title>
+			) : (
+				<Title><h2>MINTING<br/>IS NOW LIVE</h2></Title>
+			)}
 			<p className="price_mint">{value} HoG NFT = {value * snap.tokenPrice} BNB</p>
 			{process.env.TOTAL_TOKENS && (
 				<p className="total_left">

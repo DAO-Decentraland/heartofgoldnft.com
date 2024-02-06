@@ -5,7 +5,7 @@ import {useAccount, useReadContract, useTransaction, useWriteContract} from "wag
 import {useSnapshot} from "valtio";
 import {state} from "state";
 import {useEffect, useState} from "react";
-import {getABIContract} from "utils/functions";
+import {checkMintOver, getABIContract} from "utils/functions";
 import {parseEther} from 'ethers';
 import {bsc, bscTestnet} from "viem/chains";
 import {MintEnum} from "app-lib/enums/mint.enum";
@@ -82,11 +82,13 @@ export default function MintForm({value, onClick}: MintFormProps) {
 	useEffect(() => {
 		if (totalTokens?.data) {
 			axios.patch("/api/total", {total: Number(totalTokens?.data as bigint)})
-				.then((r) => state.totalSupply = r.data.data.total)
+				.then((r) => {
+					checkMintOver(r.data.data.total)
+					state.totalSupply = r.data.data.total
+				})
 				.catch(error => console.log(error))
 		}
 	}, [totalTokens])
-
 
 	return (
 		<>
@@ -112,16 +114,22 @@ export default function MintForm({value, onClick}: MintFormProps) {
 				}}
 			/>
 			<Wrapper>
-				<form className="mint_form" onSubmit={onHandleSubmit}>
-					<CustomSelect
-						array={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]}
-						value={value}
-						onClick={(e) => onClick(e as number)}
-					/>
-					<Button
-						disabled={Boolean(account.chainId !== (process.env.MODE === "production" ? bsc.id :  bscTestnet.id))}
-					>Mint</Button>
-				</form>
+				{
+					snap.mintOver ? (
+						<p className="mint_over">Thank you for your participation in Heart of Gold!</p>
+					) : (
+						<form className="mint_form" onSubmit={onHandleSubmit}>
+							<CustomSelect
+								array={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]}
+								value={value}
+								onClick={(e) => onClick(e as number)}
+							/>
+							<Button
+								disabled={Boolean(account.chainId !== (process.env.MODE === "production" ? bsc.id : bscTestnet.id))}
+							>Mint</Button>
+						</form>
+					)
+				}
 			</Wrapper>
 		</>
 	)
@@ -131,7 +139,13 @@ const Wrapper = styled.div`
 	max-width: 690px;
 	width: 100%;
 	margin-top: 30px;
-	.button{
+	.button {
 		margin-top: 20px;
+	}
+	.mint_over{
+		text-align: center;
+		max-width: 350px;
+		width: 100%;
+		margin: 20px auto;
 	}
 `

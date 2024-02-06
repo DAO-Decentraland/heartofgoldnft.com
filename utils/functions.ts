@@ -1,5 +1,6 @@
 import prodABI from "utils/ABI/prod.json"
 import devABI from "utils/ABI/dev.json"
+import {state} from "state";
 
 export function API(api: string) {
 	return `${process.env.WEBSITE}${api}`
@@ -24,4 +25,8 @@ export async function checkTransaction(transaction: any) {
 
 export function getABIContract() {
 	return process.env.MODE === "production" ? prodABI : devABI
+}
+
+export function checkMintOver(totalSupply: number) {
+	state.mintOver = Boolean(process.env.TOTAL_TOKENS && +totalSupply === +process.env.TOTAL_TOKENS)
 }
