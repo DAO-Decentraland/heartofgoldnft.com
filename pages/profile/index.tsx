@@ -15,6 +15,7 @@ import {getABIContract} from "utils/functions";
 import Pagination from "components/Pagination";
 import ProfileCardItem from "components/Profile/ProfileCardItem";
 import {useRouter} from "next/router";
+import ConnectWalletButton from "components/ConnectWalletButton";
 
 export default function Profile(){
 	const snap = useSnapshot(state)
@@ -60,18 +61,20 @@ export default function Profile(){
 
 
 	const makeRequest = (page: number) => {
-		axios.get("/api/gallery", {
-			params: {
-				page,
-				limit: 12,
-				filter: JSON.stringify(snap.profileFilters),
-				sorting: JSON.stringify(snap.profileSorting),
-				array: JSON.stringify(array)
-			}})
-			.then(r => state.profileArray = r.data.data)
-			.catch(error => {
-				console.log(error)
-			})
+		if (isConnected) {
+			axios.get("/api/gallery", {
+				params: {
+					page,
+					limit: 12,
+					filter: JSON.stringify(snap.profileFilters),
+					sorting: JSON.stringify(snap.profileSorting),
+					array: JSON.stringify(array)
+				}})
+				.then(r => state.profileArray = r.data.data)
+				.catch(error => {
+					console.log(error)
+				})
+		}
 	}
 
 	return (
@@ -85,21 +88,32 @@ export default function Profile(){
 			<Wrapper>
 				<CenterBlock>
 					<Title className="heading"><h1>Profile</h1></Title>
-					<ProfileSorting tokensArray={array}/>
 					{
-						snap.profileArray.result ? (
-							snap.profileArray.result.length ? (
-								<GalleryCardsList>
-									{
-										snap.profileArray.result.map(item => {
-											return <ProfileCardItem item={item} key={item.id}/>
-										})
-									}
-								</GalleryCardsList>
-							) : <GalleryNotification>Nothing found. Change filters</GalleryNotification>
-						) : <GalleryNotification>Loading</GalleryNotification>
+						isConnected ? (
+							<>
+								<ProfileSorting tokensArray={array}/>
+								{
+									snap.profileArray.result ? (
+										snap.profileArray.result.length ? (
+											<GalleryCardsList>
+												{
+													snap.profileArray.result.map(item => {
+														return <ProfileCardItem item={item} key={item.id}/>
+													})
+												}
+											</GalleryCardsList>
+										) : <GalleryNotification>Nothing found. Change filters</GalleryNotification>
+									) : <GalleryNotification>Loading</GalleryNotification>
+								}
+								<Pagination total={snap.profileArray.totalPages} page={snap.profilePage} slug="/profile"/>
+							</>
+						) : (
+							<>
+								<p className="connect_description">For your profile, you must connect a wallet</p>
+								<ConnectWalletButton/>
+							</>
+						)
 					}
-					<Pagination total={snap.profileArray.totalPages} page={snap.profilePage} slug="/profile"/>
 				</CenterBlock>
 			</Wrapper>
 		</>
@@ -119,5 +133,14 @@ const Wrapper = styled.section`
 	}
 	.pagination{
 		margin-top: 80px;
+	}
+	.connect_wallet_button{
+		max-width: 400px;
+		margin: 40px auto 0 auto;
+	}
+	.connect_description{
+		text-align: center;
+		margin-top: 20px;
+		font-size: 16px;
 	}
 `
