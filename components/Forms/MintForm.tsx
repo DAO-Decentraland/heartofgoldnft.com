@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Button from "components/Button";
 import CustomSelect from "components/CustomSelect";
-import {useAccount, useTransaction, useWriteContract} from "wagmi";
+import {useAccount, useReadContract, useTransaction, useWriteContract} from "wagmi";
 import {useSnapshot} from "valtio";
 import {state} from "state";
 import {useEffect, useState} from "react";
@@ -12,6 +12,7 @@ import {MintEnum} from "app-lib/enums/mint.enum";
 import LoadingMintModal from "components/Modals/LoadingMintModal";
 import ErrorMintModal from "components/Modals/ErrorMintModal";
 import SuccessMintModal from "components/Modals/SuccessMintModal";
+import axios from "axios";
 
 interface MintFormProps {
 	value: number
@@ -49,7 +50,7 @@ export default function MintForm({value, onClick}: MintFormProps) {
 		}
 	}
 
-	const { data, error, isLoading } = useTransaction({
+	const { data, error, isSuccess, isLoading } = useTransaction({
 		chainId: process.env.MODE === "production" ? bsc.id : bscTestnet.id,
 		hash: transaction,
 		query: {
@@ -63,11 +64,29 @@ export default function MintForm({value, onClick}: MintFormProps) {
 			setTransactionData(error)
 			setStatus(MintEnum.ERROR)
 		}
-		if (data) {
+		if (data && isSuccess) {
 			setTransactionData(data)
 			setStatus(MintEnum.SUCCESS)
 		}
-	}, [isLoading, error, data]);
+	}, [isLoading, error, data, isSuccess]);
+
+	const totalTokens = useReadContract({
+		abi: getABIContract(),
+		address: process.env.CONTRACT as any,
+		functionName: 'numTokens',
+		query: {
+			enabled: status === MintEnum.SUCCESS,
+		}
+	})
+
+	useEffect(() => {
+		if (totalTokens?.data) {
+			axios.patch("/api/total", {total: Number(totalTokens?.data as bigint)})
+				.then((r) => state.totalSupply = r.data.data.total)
+				.catch(error => console.log(error))
+		}
+	}, [totalTokens])
+
 
 	return (
 		<>
@@ -77,12 +96,20 @@ export default function MintForm({value, onClick}: MintFormProps) {
 			<ErrorMintModal
 				transactionData={transactionData}
 				visible={status === MintEnum.ERROR}
-				onClick={() => setStatus(null)}
+				onClick={() => {
+					setTransactionData(null)
+					setTransaction(null)
+					setStatus(null)
+				}}
 			/>
 			<SuccessMintModal
 				transactionData={transactionData}
 				visible={status === MintEnum.SUCCESS}
-				onClick={() => setStatus(null)}
+				onClick={() => {
+					setTransactionData(null)
+					setTransaction(null)
+					setStatus(null)
+				}}
 			/>
 			<Wrapper>
 				<form className="mint_form" onSubmit={onHandleSubmit}>

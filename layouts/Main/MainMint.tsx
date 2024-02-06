@@ -15,7 +15,6 @@ import {useSnapshot} from "valtio";
 
 export default function MainMint() {
 	const snap = useSnapshot(state)
-	const [total, setTotal] = useState(0)
 	const {isConnected} = useAccount()
 	const [value, setValue] = useState(3)
 
@@ -30,7 +29,7 @@ export default function MainMint() {
 	}, [tokenPrice]);
 
 	useEffect(() => {
-		axios.get("/api/total").then(r => setTotal(r.data.data.total))
+		axios.get("/api/total").then(r => state.totalSupply = r.data.data.total)
 	}, []);
 
 	return (
@@ -38,13 +37,11 @@ export default function MainMint() {
 			<Title><h2>MINTING<br/>IS NOW LIVE</h2></Title>
 			<p className="price_mint">{value} HoG NFT = {value * snap.tokenPrice} BNB</p>
 			{process.env.TOTAL_TOKENS && (
-				<p className="total_left">{numberFormat(+process.env.TOTAL_TOKENS - total)} left</p>
+				<p className="total_left">
+					{numberFormat(+process.env.TOTAL_TOKENS - snap.totalSupply)} left
+				</p>
 			)}
-			<ProgressBar
-				value={value}
-				total={total}
-				tokenPrice={snap.tokenPrice}
-			/>
+			<ProgressBar value={value}/>
 			{isConnected ? (
 				<MintForm
 					value={value}

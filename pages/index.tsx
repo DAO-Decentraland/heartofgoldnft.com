@@ -12,7 +12,6 @@ import {useRouter} from "next/router";
 import {state} from "state";
 import {scroller} from "react-scroll";
 import MainMint from "layouts/Main/MainMint";
-import Modal from "components/Modals/Modal";
 import {useSnapshot} from "valtio";
 import {useReadContract} from "wagmi";
 import {getABIContract} from "utils/functions";
