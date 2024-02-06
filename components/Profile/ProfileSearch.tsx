@@ -4,13 +4,13 @@ import {state} from "state";
 import {useState} from "react";
 import {useSnapshot} from "valtio";
 
-export default function ProfileSearch() {
+export default function ProfileSearch({tokensArray}: {tokensArray: number[]}) {
 	const snap = useSnapshot(state)
 	const [id, setId] = useState("")
 	const onHandleSubmit = (e: { preventDefault: () => void; }) => {
 		e.preventDefault()
 		if (id.length > 0) {
-			axios.get(`/api/gallery/${id}`)
+			axios.get(`/api/gallery/${id}`, {params: {array: JSON.stringify(tokensArray)}})
 					.then(r => state.profileArray = r.data.data)
 				.catch(error => console.log(error))
 		}
@@ -23,7 +23,8 @@ export default function ProfileSearch() {
 					page: snap.profilePage,
 					limit: 12,
 					filter: JSON.stringify(snap.profileFilters),
-					sorting: JSON.stringify(snap.profileSorting)
+					sorting: JSON.stringify(snap.profileSorting),
+					array: JSON.stringify(tokensArray)
 				}})
 				.then(r => state.profileArray = r.data.data)
 				.catch(error => console.log(error))

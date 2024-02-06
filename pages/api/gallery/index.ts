@@ -7,7 +7,7 @@ const router = new RouterBuilder();
 router
 	.use(corsMiddleware)
 	.get(async (req) => {
-		const { filter, limit, page, sorting } = req.query;
+		const { filter, limit, page, sorting, array } = req.query;
 		let perPage = limit ? Number(limit) : 10;
 		
 		if (typeof filter === "string" && typeof sorting === "string") {
@@ -21,13 +21,16 @@ router
 			}
 			
 			const generateFilter = () => {
-				const array = [] as any;
+				const filterArray = [] as any;
 				Object.keys(parseFilter).map(function(key, index) {
 					if (parseFilter[key].length) {
-						array.push({ [key]: { in: parseFilter[key] } });
+						filterArray.push({ [key]: { in: parseFilter[key] } })
 					}
 				});
-				return array;
+				if (typeof array === "string") {
+					filterArray.push({ id: { in: JSON.parse(array) } })
+				}
+				return filterArray;
 			};
 			
 			const searchQuery = generateFilter();

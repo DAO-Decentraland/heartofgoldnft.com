@@ -4,10 +4,10 @@ import Responsive from "helpers/Responsive";
 import ProfileSortingButtons from "components/Profile/ProfileSortingButtons";
 import ProfileSearch from "components/Profile/ProfileSearch";
 
-export default function ProfileSorting() {
+export default function ProfileSorting({tokensArray}: {tokensArray: number[]}) {
 	return (
 		<Wrapper className="gallery_sorting">
-			<ProfileSearch/>
+			<ProfileSearch tokensArray={tokensArray}/>
 			<Responsive width={600}>
 				<ProfileSortingButtons/>
 			</Responsive>

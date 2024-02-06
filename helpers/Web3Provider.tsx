@@ -10,11 +10,7 @@ export default function Web3Provider({ children }: {children: ReactNode}) {
 	return (
 		<WagmiProvider config={config}>
 			<QueryClientProvider client={queryClient}>
-				<ConnectKitProvider
-					options={{
-						enforceSupportedChains: false
-					}}
-				>{children}</ConnectKitProvider>
+				<ConnectKitProvider>{children}</ConnectKitProvider>
 			</QueryClientProvider>
 		</WagmiProvider>
 	)

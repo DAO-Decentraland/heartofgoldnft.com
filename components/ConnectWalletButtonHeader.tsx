@@ -3,15 +3,20 @@ import {ConnectKitButton} from "connectkit";
 import styled from "styled-components";
 import {useAccount} from "wagmi";
 import {trimWallet} from "utils/functions";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Link from "next/link";
 import { useDisconnect } from 'wagmi'
 import useClickOutside from "helpers/useClickOutside";
+import {useRouter} from "next/router";
 export default function ConnectWalletButtonHeader() {
 	const ref = useClickOutside(() => setVisible(false));
+	const {asPath} = useRouter()
 	const { disconnect } = useDisconnect()
 	const {address} = useAccount()
 	const [visible, setVisible] = useState(false)
+	useEffect(() => {
+		setVisible(false)
+	}, [asPath])
 	return (
 		<ConnectKitButton.Custom>
 			{
