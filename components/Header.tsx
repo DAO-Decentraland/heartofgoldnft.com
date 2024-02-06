@@ -7,8 +7,10 @@ import {useEffect, useState} from "react";
 import Responsive from "helpers/Responsive";
 import {state} from "state";
 import ConnectWalletButtonHeader from "components/ConnectWalletButtonHeader";
+import {useSnapshot} from "valtio";
 
 export default function Header() {
+	const snap = useSnapshot(state)
 	const scrollY = useScrollPosition(60)
 	const [fixed, setFixed] = useState(false)
 	useEffect(() => {
@@ -25,7 +27,7 @@ export default function Header() {
 				}>
 					<div className="nav_links">
 						<MainNav/>
-						<ConnectWalletButtonHeader/>
+						{snap.mintStart ? <ConnectWalletButtonHeader/> : null}
 					</div>
 				</Responsive>
 			</CenterBlock>

@@ -24,7 +24,7 @@ export default function MobileNav() {
 				</div>
 				<MainNav/>
 			</div>
-			<ConnectWalletButtonHeader/>
+			{snap.mintStart ? <ConnectWalletButtonHeader/> : null}
 		</Wrapper>
 	)
 }
