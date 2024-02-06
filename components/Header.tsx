@@ -18,16 +18,16 @@ export default function Header() {
 		<Wrapper className={fixed ? "fixed" : ""}>
 			<CenterBlock>
 				<Link href="/"><img className="logo" src="/pic/logo.svg" alt="heart of gold nft"/></Link>
-				<div className="nav_links">
-					<Responsive width={820} mobile={
-						<button onClick={() => state.mobileNav = true} className="mobile_nav">
-							<img src="/pic/mobile-nav.svg" alt="Mobil nav"/>
-						</button>
-					}>
+				<Responsive width={1024} mobile={
+					<button onClick={() => state.mobileNav = true} className="mobile_nav">
+						<img src="/pic/mobile-nav.svg" alt="Mobil nav"/>
+					</button>
+				}>
+					<div className="nav_links">
 						<MainNav/>
-					</Responsive>
-					<ConnectWalletButtonHeader/>
-				</div>
+						<ConnectWalletButtonHeader/>
+					</div>
+				</Responsive>
 			</CenterBlock>
 		</Wrapper>
 	)

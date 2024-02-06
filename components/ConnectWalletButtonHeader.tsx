@@ -34,7 +34,7 @@ export default function ConnectWalletButtonHeader() {
 								className="connect_wallet_button"
 							>Connect Wallet</ConnectWalletButtonWrapper>
 						) : (
-							<Wrapper ref={ref}>
+							<Wrapper className="profile_button_block" ref={ref}>
 								<button onClick={() => setVisible(!visible)} className="profile_button">
 									<span>
 										<img src="/pic/profile-icon.svg" alt="Profile"/>

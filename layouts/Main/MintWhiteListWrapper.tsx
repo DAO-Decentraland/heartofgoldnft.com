@@ -134,7 +134,7 @@ const Wrapper = styled.section`
 			left: 21px;
 			top: 50%;
 			transform: translateY(-50%);
-			@media only screen and (max-width: 600px) {
+			@media only screen and (max-width: 820px) {
 				left: 10px;
 			}
 		}
@@ -142,7 +142,7 @@ const Wrapper = styled.section`
 			right: 21px;
 			top: 50%;
 			transform: translateY(-50%);
-			@media only screen and (max-width: 600px) {
+			@media only screen and (max-width: 820px) {
 				right: 10px;
 			}
 		}
