@@ -12,6 +12,7 @@ import {checkMintOver, getABIContract} from "utils/functions";
 import {formatEther} from "viem";
 import {state} from "state";
 import {useSnapshot} from "valtio";
+import ConnectWalletButton from "components/ConnectWalletButton";
 
 export default function MainMint() {
 	const snap = useSnapshot(state)
@@ -55,17 +56,7 @@ export default function MainMint() {
 					onClick={(e) => setValue(e)}
 				/>
 			) : null}
-			<ConnectKitButton.Custom>
-				{
-					({isConnected, show }) => {
-						return (
-							!isConnected ? (
-								<Button onClick={show} className="wallet_button">Connect Wallet</Button>
-							) : null
-						)
-					}
-				}
-			</ConnectKitButton.Custom>
+			<ConnectWalletButton/>
 		</Wrapper>
 	)
 }
@@ -97,12 +88,9 @@ const Wrapper = styled.div`
 		max-width: 350px;
 		width: 100%;
 	}
-	.wallet_button{
+	.connect_wallet_button{
 		max-width: 350px;
 		margin-top: 25px;
-		&.profile_button{
-			margin-top: 60px;
-		}
 	}
 	.total_left{
 		text-align: center;

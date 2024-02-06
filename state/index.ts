@@ -1,5 +1,6 @@
 import {proxy} from "valtio";
 import {stateGallery} from "state/gallery";
+import {stateProfile} from "state/profile";
 
 const state = proxy({
 	mobileNav: false,
@@ -9,7 +10,8 @@ const state = proxy({
 	mintError: null as string | null,
 	mintStart: false as undefined | boolean | unknown,
 	mintOver: false as boolean,
-	...stateGallery
+	...stateGallery,
+	...stateProfile
 });
 
 export {state};

@@ -6,6 +6,7 @@ import useScrollPosition from "@react-hook/window-scroll";
 import {useEffect, useState} from "react";
 import Responsive from "helpers/Responsive";
 import {state} from "state";
+import ConnectWalletButtonHeader from "components/ConnectWalletButtonHeader";
 
 export default function Header() {
 	const scrollY = useScrollPosition(60)
@@ -17,13 +18,16 @@ export default function Header() {
 		<Wrapper className={fixed ? "fixed" : ""}>
 			<CenterBlock>
 				<Link href="/"><img className="logo" src="/pic/logo.svg" alt="heart of gold nft"/></Link>
-				<Responsive width={820} mobile={
-					<button onClick={() => state.mobileNav = true} className="mobile_nav">
-						<img src="/pic/mobile-nav.svg" alt="Mobil nav"/>
-					</button>
-				}>
-					<MainNav/>
-				</Responsive>
+				<div className="nav_links">
+					<Responsive width={820} mobile={
+						<button onClick={() => state.mobileNav = true} className="mobile_nav">
+							<img src="/pic/mobile-nav.svg" alt="Mobil nav"/>
+						</button>
+					}>
+						<MainNav/>
+					</Responsive>
+					<ConnectWalletButtonHeader/>
+				</div>
 			</CenterBlock>
 		</Wrapper>
 	)
@@ -90,5 +94,10 @@ const Wrapper = styled.header`
 	}
 	.mobile_nav{
 		width: auto;
+	}
+	.nav_links{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 	}
 `
