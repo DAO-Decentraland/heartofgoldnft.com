@@ -35,7 +35,7 @@ const Wrapper = styled.div`
 	}
 	h2{
     color: #FFF;
-    font-size: 82px;
+    font-size: 72px;
     @media only screen and (max-width: 600px) {
 	    font-size: 52px;
     }

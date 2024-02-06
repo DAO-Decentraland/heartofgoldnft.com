@@ -35,6 +35,15 @@ const Wrapper = styled.button`
   font-weight: 500;
   line-height: 100%;
   text-transform: uppercase;
+	&:disabled{
+		cursor: default;
+		opacity: .4;
+		&:hover{
+			&:before{
+				transform: translate(10px, 10px);
+			}
+		}
+	}
 	&:hover{
 		&:before{
       transform: translate(0, 0);

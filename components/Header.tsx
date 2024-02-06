@@ -6,8 +6,11 @@ import useScrollPosition from "@react-hook/window-scroll";
 import {useEffect, useState} from "react";
 import Responsive from "helpers/Responsive";
 import {state} from "state";
+import ConnectWalletButtonHeader from "components/ConnectWalletButtonHeader";
+import {useSnapshot} from "valtio";
 
 export default function Header() {
+	const snap = useSnapshot(state)
 	const scrollY = useScrollPosition(60)
 	const [fixed, setFixed] = useState(false)
 	useEffect(() => {
@@ -17,12 +20,15 @@ export default function Header() {
 		<Wrapper className={fixed ? "fixed" : ""}>
 			<CenterBlock>
 				<Link href="/"><img className="logo" src="/pic/logo.svg" alt="heart of gold nft"/></Link>
-				<Responsive width={820} mobile={
+				<Responsive width={1024} mobile={
 					<button onClick={() => state.mobileNav = true} className="mobile_nav">
 						<img src="/pic/mobile-nav.svg" alt="Mobil nav"/>
 					</button>
 				}>
-					<MainNav/>
+					<div className="nav_links">
+						<MainNav/>
+						{snap.mintStart ? <ConnectWalletButtonHeader/> : null}
+					</div>
 				</Responsive>
 			</CenterBlock>
 		</Wrapper>
@@ -90,5 +96,10 @@ const Wrapper = styled.header`
 	}
 	.mobile_nav{
 		width: auto;
+	}
+	.nav_links{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 	}
 `

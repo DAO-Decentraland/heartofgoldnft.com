@@ -5,6 +5,7 @@ import Link from "next/link";
 import {useRouter} from "next/router";
 import {useEffect} from "react";
 import MainNav from "components/MainNav";
+import ConnectWalletButtonHeader from "components/ConnectWalletButtonHeader";
 
 export default function MobileNav() {
 	const snap = useSnapshot(state)
@@ -14,31 +15,38 @@ export default function MobileNav() {
 	}, [asPath]);
 	return (
 		<Wrapper className={snap.mobileNav ? "active" : ""}>
-			<div className="heading_nav">
-				<Link href="/"><img className="logo" src="/pic/logo.svg" alt="heart of gold nft"/></Link>
-				<button onClick={() => state.mobileNav = false} className="close_nav"><img src="/pic/close-menu.svg" alt="Close nav"/></button>
+			<div className="top">
+				<div className="heading_nav">
+					<Link href="/"><img className="logo" src="/pic/logo.svg" alt="heart of gold nft"/></Link>
+					<button onClick={() => state.mobileNav = false} className="close_nav">
+						<img src="/pic/close-menu.svg" alt="Close nav"/>
+					</button>
+				</div>
+				<MainNav/>
 			</div>
-			<MainNav/>
+			{snap.mintStart ? <ConnectWalletButtonHeader/> : null}
 		</Wrapper>
 	)
 }
 
 const Wrapper = styled.div`
 	position: fixed;
-  width: 100%;
+	width: 100%;
 	height: 100%;
 	top: 0;
 	left: 0;
-  z-index: 99999;
+	z-index: 99999;
 	padding: 20px;
 	background: #0E0E0E;
 	display: none;
-	&.active{
-		display: block;
+	flex-direction: column;
+	justify-content: space-between;
+	&.active {
+		display: flex;
 	}
-  .logo{
-    width: 100%;
-    transition: all .3s ease-in-out;
+	.logo {
+		width: 100%;
+		transition: all .3s ease-in-out;
     display: flex;
     align-items: center;
     line-height: 0;
@@ -75,5 +83,17 @@ const Wrapper = styled.div`
 				color: #EFBC6A;
 			}
 		}
+	}
+	.connect_wallet_button, .profile_button_block{
+		max-width: 600px;
+		width: 100%;
+		margin: 40px auto 40px auto;
+		@media only screen and (max-width: 600px) {
+			margin: 40px auto 0 auto;
+		}
+	}
+	.profile_modal{
+		top: auto;
+		bottom: 50px;
 	}
 `

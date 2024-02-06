@@ -3,23 +3,29 @@ import {ReactNode} from "react";
 
 interface ModalProps {
 	visible: boolean
-	onClick: (value: boolean) => void
+	onClick?: (value: boolean) => void
 	children: ReactNode
+	width?: number
 }
 
 /**
  * Modal Component
  * @constructor
  */
-export default function Modal({visible, onClick, children}: ModalProps) {
+export default function Modal({visible, onClick, children, width = 900}: ModalProps) {
 	return (
 		visible ? (
 			<Wrapper>
-				<div className="modal">
-					<button onClick={() => onClick(false)} className="close_button">close <img src="/pic/close-icon.svg" alt="close"/></button>
+				<div style={{maxWidth: width}} className="modal">
+					{onClick ? (
+						<button onClick={() => onClick ? onClick(false) : null} className="close_button">close <img src="/pic/close-icon.svg" alt="close"/></button>
+					) : null}
 					<div className="modal_content">{children}</div>
 				</div>
-				<div onClick={() => onClick(false)} className="overlay"/>
+				<div
+					onClick={() => onClick ? onClick(false) : null}
+					className="overlay"
+				/>
 			</Wrapper>
 		) : null
 	)
@@ -38,11 +44,10 @@ const Wrapper = styled.div`
 	.modal{
 		position: relative;
 		z-index: 20;
-		max-width: 900px;
 		width: calc(100% - 40px);
 		border-radius: 30px;
 		background: #0D0D0D;
-		padding: 30px;
+		padding: 20px 40px 60px 40px;
 		max-height: 85vh;
 		overflow-y: auto;
 		&::-webkit-scrollbar { width: 3px; height: 3px; opacity: 0; visibility: hidden}
@@ -72,6 +77,9 @@ const Wrapper = styled.div`
 		}
 	}
 	.modal_content{
-		margin-top: 15px;
+		margin-top: 30px;
+		font-size: 18px;
+		font-weight: 300;
+		line-height: 140%;
 	}
 `

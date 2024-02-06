@@ -6,24 +6,24 @@ import Image from "next/image";
 import Title from "components/Title";
 import numberFormat from "helpers/numberFormat";
 
-export default function GalleryModalItem() {
+export default function ProfileModalItem() {
 	const snap = useSnapshot(state)
 	return (
-		<Modal visible={Boolean(snap.galleryModalData)} onClick={() => state.galleryModalData = null}>
+		<Modal visible={Boolean(snap.profileModalData)} onClick={() => state.profileModalData = null}>
 			<Wrapper>
 				<div className="image_modal">
-					<Image width={600} height={876.51} src={`https://cards.heartofgoldnft.com/${snap.galleryModalData?.image}.webp`} alt={snap.galleryModalData ? snap.galleryModalData?.id.toString() : ""}/>
+					<Image width={600} height={876.51} src={`https://cards.heartofgoldnft.com/${snap.profileModalData?.image}.webp`} alt={snap.profileModalData ? snap.profileModalData?.id.toString() : ""}/>
 				</div>
 				<div className="content_modal">
-					<Title><img src="/pic/number-icon.svg" alt={snap.galleryModalData?.id.toString()}/><h2>{numberFormat(snap.galleryModalData?.id)}</h2></Title>
+					<Title><img src="/pic/number-icon.svg" alt={snap.profileModalData?.id.toString()}/><h2>{numberFormat(snap.profileModalData?.id)}</h2></Title>
 					<ul className="modal_list">
-						<li><p>Rarity rank</p><p>{numberFormat(snap.galleryModalData?.rank)}</p></li>
-						<li><p>Metal</p><p>{snap.galleryModalData?.metal}</p></li>
-						<li><p>Augmentation</p><p>{snap.galleryModalData?.augmentation}</p></li>
-						<li><p>Stone</p><p>{snap.galleryModalData?.stone}</p></li>
-						<li><p>Pattern</p><p>{snap.galleryModalData?.pattern}</p></li>
-						<li><p>Planet</p><p>{snap.galleryModalData?.planet}</p></li>
-						<li><p>Star</p><p>{snap.galleryModalData?.star}</p></li>
+						<li><p>Rarity rank</p><p>{numberFormat(snap.profileModalData?.rank)}</p></li>
+						<li><p>Metal</p><p>{snap.profileModalData?.metal}</p></li>
+						<li><p>Augmentation</p><p>{snap.profileModalData?.augmentation}</p></li>
+						<li><p>Stone</p><p>{snap.profileModalData?.stone}</p></li>
+						<li><p>Pattern</p><p>{snap.profileModalData?.pattern}</p></li>
+						<li><p>Planet</p><p>{snap.profileModalData?.planet}</p></li>
+						<li><p>Star</p><p>{snap.profileModalData?.star}</p></li>
 					</ul>
 				</div>
 			</Wrapper>

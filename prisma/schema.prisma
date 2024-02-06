@@ -62,3 +62,10 @@ model WhiteListForm {
 
   @@map("white_list_form")
 }
+
+model Settings {
+  id        Int     @unique @default(autoincrement())
+  mintStart Boolean @default(false)
+
+  @@map("settings")
+}

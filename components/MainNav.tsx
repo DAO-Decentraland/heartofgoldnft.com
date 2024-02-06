@@ -27,7 +27,7 @@ export default function MainNav() {
 				}
 			</li>
 			<li>
-				<a onClick={() => state.mobileNav = false} href={`https://bscscan.com/address/${process.env.CONTRACT}#readContract`} target="_blank" rel="noreferrer" className="target_slug">Smart contract</a>
+				<a onClick={() => state.mobileNav = false} href={`${process.env.MODE === "production" ? "https://bscscan.com" : "https://testnet.bscscan.com"}/address/${process.env.CONTRACT}#readContract`} target="_blank" rel="noreferrer" className="target_slug">Smart contract</a>
 			</li>
 			<li>
 				<a onClick={() => state.mobileNav = false} href="/pdf/litepaper.pdf" target="_blank" rel="noreferrer">Lightpaper</a>

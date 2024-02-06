@@ -12,7 +12,7 @@ export default function Footer() {
 				</div>
 				<ul className="links">
 					<li><a href="mailto:info@heartofgoldnft.com">info@heartofgoldnft.com</a></li>
-					<li><a href={`https://bscscan.com/address/${process.env.CONTRACT}#readContract`} target="_blank" rel="noreferrer" className="target_slug">Smart contract</a></li>
+					<li><a href={`${process.env.MODE === "production" ? "https://bscscan.com" : "https://testnet.bscscan.com"}/address/${process.env.CONTRACT}#readContract`} target="_blank" rel="noreferrer" className="target_slug">Smart contract</a></li>
 					<li><a href="/pdf/litepaper.pdf" target="_blank" rel="noreferrer" className="target_slug">Lightpaper</a></li>
 				</ul>
 				<Social/>

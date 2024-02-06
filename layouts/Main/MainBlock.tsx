@@ -4,15 +4,18 @@ import Title from "components/Title";
 import AnchorLink from "components/AnchorLink";
 import Social from "components/Social";
 import MainFlipCard from "layouts/Main/MainFlipCard";
+import {useSnapshot} from "valtio";
+import {state} from "state";
 
 export default function MainBlock() {
+	const snap = useSnapshot(state)
 	return (
 		<Wrapper>
 			<CenterBlock>
 				<div className="content">
 					<Title><h1>Unlocking the Future of nft</h1></Title>
 					<p className="description">Empower your unstoppable winning streak in our groundbreaking NFT Collection, where GAMEFi meets Play-to-Earn at the ultimate crossroads.</p>
-					<AnchorLink to="white_list_form">Join the whitelist</AnchorLink>
+					<AnchorLink to="mint_block">{snap.mintStart ? "Mint ticket" : "Join the whitelist"}</AnchorLink>
 					<Social/>
 				</div>
 				<MainFlipCard/>
