@@ -60,7 +60,7 @@ export default function Home(){
 			<MainBlock/>
 			<MainMedia/>
 			<MintWhiteListWrapper>
-				{mintStart ? <MainMint/> : <MainWhitelisted/>}
+				{snap.mintStart ? <MainMint/> : <MainWhitelisted/>}
 			</MintWhiteListWrapper>
 			<MainHowItWorks/>
 			<MainCommunity/>

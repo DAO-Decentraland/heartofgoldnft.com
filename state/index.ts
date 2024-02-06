@@ -10,6 +10,7 @@ const state = proxy({
 	mintError: null as string | null,
 	mintStart: false as undefined | boolean | unknown,
 	mintOver: false as boolean,
+	mainLoading: true as boolean,
 	...stateGallery,
 	...stateProfile
 });

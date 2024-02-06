@@ -33,7 +33,7 @@ export default function MintWhiteListWrapper({children}: MintWhiteListWrapperPro
 	}
 
 	return (
-		<Wrapper id="white_list_form">
+		<Wrapper id="mint_block">
 			<Responsive width={1730} mobile={<LeftImage/>}/>
 			<CenterBlock>
 				<Responsive width={1730}>
