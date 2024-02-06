@@ -109,7 +109,7 @@ export default function Profile(){
 							</>
 						) : (
 							<>
-								<p className="connect_description">For your profile, you must connect a wallet</p>
+								<p className="connect_description">Wallet Connection Required: Connect your wallet to activate your profile.</p>
 								<ConnectWalletButton/>
 							</>
 						)
@@ -141,6 +141,6 @@ const Wrapper = styled.section`
 	.connect_description{
 		text-align: center;
 		margin-top: 20px;
-		font-size: 16px;
+		font-size: 14px;
 	}
 `
