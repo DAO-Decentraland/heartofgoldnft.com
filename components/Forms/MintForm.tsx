@@ -1,13 +1,17 @@
 import styled from "styled-components";
 import Button from "components/Button";
 import CustomSelect from "components/CustomSelect";
-import {useAccount} from "wagmi";
+import {useAccount, useTransaction, useWriteContract} from "wagmi";
 import {useSnapshot} from "valtio";
 import {state} from "state";
-import {useState} from "react";
-import { useWriteContract } from 'wagmi'
+import {useEffect, useState} from "react";
 import {getABIContract} from "utils/functions";
-import { parseEther } from 'ethers';
+import {parseEther} from 'ethers';
+import {bsc, bscTestnet} from "viem/chains";
+import {MintEnum} from "app-lib/enums/mint.enum";
+import LoadingMintModal from "components/Modals/LoadingMintModal";
+import ErrorMintModal from "components/Modals/ErrorMintModal";
+import SuccessMintModal from "components/Modals/SuccessMintModal";
 
 interface MintFormProps {
 	value: number
@@ -22,8 +26,9 @@ export default function MintForm({value, onClick}: MintFormProps) {
 	const snap = useSnapshot(state)
 	const account = useAccount()
 	const { writeContractAsync } = useWriteContract()
-	const [status, setStatus] = useState("mint")
-	const [transaction, setTransaction] = useState("")
+	const [status, setStatus] = useState<MintEnum | null>(null)
+	const [transaction, setTransaction] = useState<undefined | any>(undefined)
+	const [transactionData, setTransactionData] = useState<null | any>(null)
 
 	const onHandleSubmit = async (e: { preventDefault: () => void; }) => {
 		e.preventDefault()
@@ -37,35 +42,69 @@ export default function MintForm({value, onClick}: MintFormProps) {
 				args: [account.address, value],
 				value: parseEther(String(value * snap.tokenPrice)),
 			})
-			console.log(transaction)
+			setTransaction(transaction)
 		} catch (error) {
 			// @ts-ignore
 			state.mintError = error?.shortMessage
 		}
 	}
+
+	const { data, error, isLoading } = useTransaction({
+		chainId: process.env.MODE === "production" ? bsc.id : bscTestnet.id,
+		hash: transaction,
+		query: {
+			enabled: Boolean(transaction)
+		}
+	})
+
+	useEffect(() => {
+		if (isLoading) setStatus(MintEnum.LOADING)
+		if (error) {
+			setTransactionData(error)
+			setStatus(MintEnum.ERROR)
+		}
+		if (data) {
+			setTransactionData(data)
+			setStatus(MintEnum.SUCCESS)
+		}
+	}, [isLoading, error, data]);
+
 	return (
-		<Wrapper>
-			<form className="mint_form" onSubmit={onHandleSubmit}>
-				<CustomSelect array={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]} value={value} onClick={(e) => onClick(e as number)}/>
-				<Button disabled={Boolean(account.chainId !== (process.env.MODE === "production" ? 56 : 97))}>Mint</Button>
-			</form>
-		</Wrapper>
+		<>
+			<LoadingMintModal
+				visible={status === MintEnum.LOADING}
+			/>
+			<ErrorMintModal
+				transactionData={transactionData}
+				visible={status === MintEnum.ERROR}
+				onClick={() => setStatus(null)}
+			/>
+			<SuccessMintModal
+				transactionData={transactionData}
+				visible={status === MintEnum.SUCCESS}
+				onClick={() => setStatus(null)}
+			/>
+			<Wrapper>
+				<form className="mint_form" onSubmit={onHandleSubmit}>
+					<CustomSelect
+						array={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]}
+						value={value}
+						onClick={(e) => onClick(e as number)}
+					/>
+					<Button
+						disabled={Boolean(account.chainId !== (process.env.MODE === "production" ? bsc.id :  bscTestnet.id))}
+					>Mint</Button>
+				</form>
+			</Wrapper>
+		</>
 	)
 }
 
 const Wrapper = styled.div`
-	max-width: 590px;
+	max-width: 690px;
 	width: 100%;
-	margin-top: 45px;
-	form{
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-	.custom_select{
-		width: calc(50% - 10px);
-	}
+	margin-top: 30px;
 	.button{
-		width: calc(50% - 10px)
+		margin-top: 20px;
 	}
 `

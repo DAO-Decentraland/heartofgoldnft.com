@@ -11,10 +11,10 @@ interface ProgressBarProps {
 }
 export default function ProgressBar({value, total, tokenPrice}: ProgressBarProps) {
 	const snap = useSnapshot(state)
-	
+
 	useEffect(() => {
 		const timer = setInterval(() => {
-		
+
 		}, 4000);
 		return () => clearInterval(timer);
 	})
@@ -22,11 +22,11 @@ export default function ProgressBar({value, total, tokenPrice}: ProgressBarProps
 		process.env.TOTAL_TOKENS ? (
 			<Wrapper className="progress_bar">
 				<div className="progress_line">
-					<span style={{width: (+process.env.TOTAL_TOKENS - total) * 100 / +process.env.TOTAL_TOKENS}}/>
+					<span style={{width: (+process.env.TOTAL_TOKENS - total * 100) / +process.env.TOTAL_TOKENS}}/>
 				</div>
 				<div className="progress_description">
 					<ul>
-						<li>Mint {value} NFT using {numberFormat(value * tokenPrice, " ", ".", "1")} BNB</li>
+						<li>Mint {value} NFT using {value * tokenPrice} BNB</li>
 					</ul>
 					<p>Out of {numberFormat(process.env.TOTAL_TOKENS)}</p>
 				</div>

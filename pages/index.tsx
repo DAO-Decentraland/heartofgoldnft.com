@@ -7,17 +7,32 @@ import MainRoadmap from "layouts/Main/MainRoadmap";
 import MainMedia from "layouts/Main/MainMedia";
 import MainCollection from "layouts/Main/MainCollection";
 import MainCommunity from "layouts/Main/MainCommunity";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
 import {state} from "state";
 import {scroller} from "react-scroll";
 import MainMint from "layouts/Main/MainMint";
-import Modal from "components/Modal";
+import Modal from "components/Modals/Modal";
 import {useSnapshot} from "valtio";
+import {useReadContract} from "wagmi";
+import {getABIContract} from "utils/functions";
+import MainWhitelisted from "layouts/Main/MainWhitelisted";
+import MintWhiteListWrapper from "layouts/Main/MintWhiteListWrapper";
+import ErrorMintModal from "components/Modals/ErrorMintModal";
 
 export default function Home(){
 	const snap = useSnapshot(state)
 	const {query} = useRouter()
+	const [mintStart, setMintStart] = useState<undefined | unknown | boolean>(false)
+	const result = useReadContract({
+		abi: getABIContract(),
+		address: process.env.CONTRACT as any,
+		functionName: 'mintEnabled',
+	})
+	useEffect(() => {
+		if (result?.data) setMintStart(result?.data)
+	}, [result]);
+
 	useEffect(() => {
 		if (query && !query.scroll) state.utm = JSON.stringify(query)
 		if (query.scroll) {
@@ -38,15 +53,16 @@ export default function Home(){
 				description="Empower your unstoppable winning streak in our groundbreaking NFT Collection, where GAMEFi meets Play-to-Earn at the ultimate crossroads."
 				image="/pic/og.jpg"
 			/>
-			<Modal
-				width={600}
+			<ErrorMintModal
 				visible={Boolean(snap.mintError)}
-				onClick={() => state.mintError = null}>
-				<p>{snap.mintError}</p>
-			</Modal>
+				onClick={() => state.mintError = null}
+				transactionData={snap.mintError}
+			/>
 			<MainBlock/>
 			<MainMedia/>
-			<MainMint/>
+			<MintWhiteListWrapper>
+				{mintStart ? <MainMint/> : <MainWhitelisted/>}
+			</MintWhiteListWrapper>
 			<MainHowItWorks/>
 			<MainCommunity/>
 			<MainCollection/>

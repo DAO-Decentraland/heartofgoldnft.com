@@ -30,7 +30,10 @@ export default function CustomSelect({array, value, onClick}: CustomSelectProps)
 					{
 						array.map((item, index) => {
 							return (
-								<li className={value === item ? "active" : ""} onClick={() => onHandleClick(item)} key={index}>{item}</li>
+								<li
+									className={value === item ? "active" : ""}
+									onClick={() => onHandleClick(item)} key={index}
+								>{item}</li>
 							)
 						})
 					}
@@ -81,7 +84,14 @@ const Wrapper = styled.div`
 		opacity: 0;
 		transition: .2s ease-in-out;
 		overflow-y: auto;
-		height: 350px;
+		height: 210px;
+		&::-webkit-scrollbar { width: 3px; height: 3px;}
+		&::-webkit-scrollbar-button {  display: none; }
+		&::-webkit-scrollbar-track {  background-color: #0D0D0D;}
+		&::-webkit-scrollbar-track-piece { background-color: #0D0D0D;}
+		&::-webkit-scrollbar-thumb { height: 50px; background-color: #E2AF5C; border-radius: 3px;}
+		&::-webkit-scrollbar-corner { background-color: #1D1D1D;}
+		&::-webkit-resizer { background-color: #1D1D1D;}
 		&.visible{
 			visibility: visible;
 			opacity: 1;

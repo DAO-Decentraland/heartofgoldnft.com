@@ -5,8 +5,9 @@ const state = proxy({
 	mobileNav: false,
 	utm: null as string | null,
 	totalSupply: 0,
-	tokenPrice: 0.3,
+	tokenPrice: 0.3 as number,
 	mintError: null as string | null,
+	mintStart: false as undefined | boolean | unknown,
 	...stateGallery
 });
 

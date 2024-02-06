@@ -42,7 +42,7 @@
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.1.8",
     "valtio": "^1.13.0",
-    "viem": "^2.7.3",
+    "viem": "^2.7.6",
     "wagmi": "^2.5.5"
   },
   "devDependencies": {

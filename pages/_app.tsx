@@ -7,10 +7,12 @@ import GalleryFiltersModal from "layouts/Gallery/GalleryFiltersModal";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Web3Provider from "helpers/Web3Provider";
+import SwitchNetworkModal from "components/Modals/SwitchNetworkModal";
 
 export default function MyApp({Component, pageProps}: AppProps) {
   return (
     <Web3Provider>
+      <SwitchNetworkModal/>
       <GalleryFiltersModal/>
       <MobileNav/>
       <Header/>
