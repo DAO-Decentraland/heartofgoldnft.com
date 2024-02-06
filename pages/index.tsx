@@ -7,14 +7,12 @@ import MainRoadmap from "layouts/Main/MainRoadmap";
 import MainMedia from "layouts/Main/MainMedia";
 import MainCollection from "layouts/Main/MainCollection";
 import MainCommunity from "layouts/Main/MainCommunity";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {useRouter} from "next/router";
 import {state} from "state";
 import {scroller} from "react-scroll";
 import MainMint from "layouts/Main/MainMint";
 import {useSnapshot} from "valtio";
-import {useReadContract} from "wagmi";
-import {getABIContract} from "utils/functions";
 import MainWhitelisted from "layouts/Main/MainWhitelisted";
 import MintWhiteListWrapper from "layouts/Main/MintWhiteListWrapper";
 import ErrorMintModal from "components/Modals/ErrorMintModal";
@@ -22,16 +20,6 @@ import ErrorMintModal from "components/Modals/ErrorMintModal";
 export default function Home(){
 	const snap = useSnapshot(state)
 	const {query} = useRouter()
-	const [mintStart, setMintStart] = useState<undefined | unknown | boolean>(false)
-	const result = useReadContract({
-		abi: getABIContract(),
-		address: process.env.CONTRACT as any,
-		functionName: 'mintEnabled',
-	})
-	useEffect(() => {
-		if (result?.data) setMintStart(result?.data)
-	}, [result]);
-
 	useEffect(() => {
 		if (query && !query.scroll) state.utm = JSON.stringify(query)
 		if (query.scroll) {
