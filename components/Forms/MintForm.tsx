@@ -34,6 +34,7 @@ export default function MintForm({value, onClick}: MintFormProps) {
 	const onHandleSubmit = async (e: { preventDefault: () => void; }) => {
 		e.preventDefault()
 		state.mintError = null
+		setStatus(MintEnum.LOADING)
 		try {
 			const transaction = await writeContractAsync(
 				{
@@ -47,6 +48,7 @@ export default function MintForm({value, onClick}: MintFormProps) {
 		} catch (error) {
 			// @ts-ignore
 			state.mintError = error?.shortMessage
+			setStatus(null)
 		}
 	}
 
@@ -94,6 +96,7 @@ export default function MintForm({value, onClick}: MintFormProps) {
 		<>
 			<LoadingMintModal
 				visible={status === MintEnum.LOADING}
+				transaction={transaction}
 			/>
 			<ErrorMintModal
 				transactionData={transactionData}
