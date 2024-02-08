@@ -52,21 +52,21 @@ export default function MintForm({value, onClick}: MintFormProps) {
 		}
 	}
 
-	const { data, error, isSuccess, isLoading } = useWaitForTransactionReceipt({
+	const { data, error, isSuccess, isLoading, isError } = useWaitForTransactionReceipt({
 		chainId: process.env.MODE === "production" ? bsc.id : bscTestnet.id,
 		hash: transaction,
 		query: {
 			enabled: Boolean(transaction)
 		}
 	})
-
+	
 	useEffect(() => {
 		if (isLoading) setStatus(MintEnum.LOADING)
-		if (error) {
+		if (isError) {
 			setTransactionData(error)
 			setStatus(MintEnum.ERROR)
 		}
-		if (data && data.status === "success") {
+		if (isSuccess) {
 			setTransactionData(data)
 			setStatus(MintEnum.SUCCESS)
 		}
