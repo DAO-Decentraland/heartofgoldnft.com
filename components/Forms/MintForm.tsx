@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Button from "components/Button";
 import CustomSelect from "components/CustomSelect";
-import {useAccount, useReadContract, useTransaction, useWriteContract} from "wagmi";
+import {useAccount, useReadContract, useWaitForTransactionReceipt, useWriteContract} from "wagmi";
 import {useSnapshot} from "valtio";
 import {state} from "state";
 import {useEffect, useState} from "react";
@@ -52,7 +52,7 @@ export default function MintForm({value, onClick}: MintFormProps) {
 		}
 	}
 
-	const { data, error, isSuccess, isLoading } = useTransaction({
+	const { data, error, isSuccess, isLoading } = useWaitForTransactionReceipt({
 		chainId: process.env.MODE === "production" ? bsc.id : bscTestnet.id,
 		hash: transaction,
 		query: {
@@ -66,7 +66,7 @@ export default function MintForm({value, onClick}: MintFormProps) {
 			setTransactionData(error)
 			setStatus(MintEnum.ERROR)
 		}
-		if (data && isSuccess) {
+		if (data && data.status === "success") {
 			setTransactionData(data)
 			setStatus(MintEnum.SUCCESS)
 		}
