@@ -6,6 +6,7 @@ import {useRouter} from "next/router";
 import {useEffect} from "react";
 import MainNav from "components/MainNav";
 import ConnectWalletButtonHeader from "components/ConnectWalletButtonHeader";
+import {MintStatusEnum} from "app-lib/enums/mint.enum";
 
 export default function MobileNav() {
 	const snap = useSnapshot(state)
@@ -24,7 +25,7 @@ export default function MobileNav() {
 				</div>
 				<MainNav/>
 			</div>
-			{snap.mintStart ? <ConnectWalletButtonHeader/> : null}
+			{snap.mintStatus !== MintStatusEnum.MINT_DISABLED ? <ConnectWalletButtonHeader/> : null}
 		</Wrapper>
 	)
 }

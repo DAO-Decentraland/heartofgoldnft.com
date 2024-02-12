@@ -8,6 +8,7 @@ import Responsive from "helpers/Responsive";
 import {state} from "state";
 import ConnectWalletButtonHeader from "components/ConnectWalletButtonHeader";
 import {useSnapshot} from "valtio";
+import {MintStatusEnum} from "app-lib/enums/mint.enum";
 
 export default function Header() {
 	const snap = useSnapshot(state)
@@ -27,7 +28,7 @@ export default function Header() {
 				}>
 					<div className="nav_links">
 						<MainNav/>
-						{snap.mintStart ? <ConnectWalletButtonHeader/> : null}
+						{snap.mintStatus !== MintStatusEnum.MINT_DISABLED ? <ConnectWalletButtonHeader/> : null}
 					</div>
 				</Responsive>
 			</CenterBlock>

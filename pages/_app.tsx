@@ -18,7 +18,7 @@ export default function MyApp({Component, pageProps}: AppProps) {
   useEffect(() => {
     axios.get("/api/settings")
       .then(r => {
-        state.mintStart = r.data.data.mintStart
+        state.mintStatus = r.data.data.mintStatus
         setTimeout(() => {
           state.mainLoading = false
         }, 800)

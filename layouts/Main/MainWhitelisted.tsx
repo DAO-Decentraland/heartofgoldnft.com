@@ -119,4 +119,9 @@ const Wrapper = styled.div`
 	    padding: 5px 10px;
     }
 	}
+	.error{
+		margin-top: 20px;
+		text-align: center;
+		font-size: 12px;
+	}
 `

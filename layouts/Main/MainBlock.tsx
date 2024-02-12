@@ -6,6 +6,7 @@ import Social from "components/Social";
 import MainFlipCard from "layouts/Main/MainFlipCard";
 import {useSnapshot} from "valtio";
 import {state} from "state";
+import {MintStatusEnum} from "app-lib/enums/mint.enum";
 
 export default function MainBlock() {
 	const snap = useSnapshot(state)
@@ -15,7 +16,7 @@ export default function MainBlock() {
 				<div className="content">
 					<Title><h1>Unlocking the Future of nft</h1></Title>
 					<p className="description">Empower your unstoppable winning streak in our groundbreaking NFT Collection, where GAMEFi meets Play-to-Earn at the ultimate crossroads.</p>
-					<AnchorLink to="mint_block">{snap.mintStart ? "Mint ticket" : "Join the whitelist"}</AnchorLink>
+					<AnchorLink to="mint_block">{snap.mintStatus !== MintStatusEnum.MINT_DISABLED ? "Mint ticket" : "Join the whitelist"}</AnchorLink>
 					<Social/>
 				</div>
 				<MainFlipCard/>

@@ -64,8 +64,14 @@ model WhiteListForm {
 }
 
 model Settings {
-  id        Int     @unique @default(autoincrement())
-  mintStart Boolean @default(false)
+  id         Int            @unique @default(autoincrement())
+  mintStatus MintStatusEnum @default(MINT_DISABLED)
 
   @@map("settings")
+}
+
+enum MintStatusEnum {
+  MINT_DISABLED
+  MINT_START
+  WHITE_LIST_MINT
 }

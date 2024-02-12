@@ -1,6 +1,7 @@
 import {proxy} from "valtio";
 import {stateGallery} from "state/gallery";
 import {stateProfile} from "state/profile";
+import {MintStatusEnum} from "app-lib/enums/mint.enum";
 
 const state = proxy({
 	mobileNav: false,
@@ -8,7 +9,7 @@ const state = proxy({
 	totalSupply: 0,
 	tokenPrice: 0.3 as number,
 	mintError: null as string | null,
-	mintStart: false as undefined | boolean | unknown,
+	mintStatus: MintStatusEnum.MINT_DISABLED as MintStatusEnum,
 	mintOver: false as boolean,
 	mainLoading: true as boolean,
 	...stateGallery,

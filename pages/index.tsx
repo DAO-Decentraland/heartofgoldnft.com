@@ -16,6 +16,8 @@ import {useSnapshot} from "valtio";
 import MainWhitelisted from "layouts/Main/MainWhitelisted";
 import MintWhiteListWrapper from "layouts/Main/MintWhiteListWrapper";
 import ErrorMintModal from "components/Modals/ErrorMintModal";
+import {MintStatusEnum} from "app-lib/enums/mint.enum";
+import MainWhiteListCheck from "layouts/Main/MainWhiteListCheck";
 
 export default function Home(){
 	const snap = useSnapshot(state)
@@ -33,6 +35,7 @@ export default function Home(){
 			}, 300)
 		}
 	}, [query]);
+	
 	return (
 		<>
 			<Seo
@@ -48,7 +51,9 @@ export default function Home(){
 			<MainBlock/>
 			<MainMedia/>
 			<MintWhiteListWrapper>
-				{snap.mintStart ? <MainMint/> : <MainWhitelisted/>}
+				{snap.mintStatus === MintStatusEnum.MINT_DISABLED ? <MainWhitelisted/> : null}
+				{snap.mintStatus === MintStatusEnum.WHITE_LIST_MINT ? <MainWhiteListCheck/> : null}
+				{snap.mintStatus === MintStatusEnum.MINT_START ? <MainMint/> : null}
 			</MintWhiteListWrapper>
 			<MainHowItWorks/>
 			<MainCommunity/>
