@@ -28,12 +28,14 @@ export default function MainWhiteListCheck() {
 	}
 	return (
 		<Wrapper>
-			<Title><h2>Mint will be<br/>activated soon</h2></Title>
-			<p className="description">If you filled out a White list application, then you can now fill out your email
-				address and make a mint</p>
+			<Title><h2>Minting Will<br/>Open Soon</h2></Title>
+			<div className="description">
+				<p>Pre-Mint Event Now Open for Whitelisted Users Only.</p>
+				<p>Enter Your Email for Authorization.</p>
+			</div>
 			<form onSubmit={obHandleSubmit}>
 				<Input value={email} type="email" onChange={setEmail} placeholder="Email" required={true}/>
-				<Button disabled={loading}>{loading ? "Checking" : "Check email"}</Button>
+				<Button disabled={loading}>{loading ? "Checking" : "Submit Email"}</Button>
 			</form>
 			{error && <p className="error">{error}</p>}
 		</Wrapper>
