@@ -11,7 +11,7 @@ router
 		const check = await prisma.whiteListForm.findUnique({
 			where: {email}
 		})
-		if (!check) return sendError("User is not found")
+		if (!check) return sendError("User Email Not Found in the Whitelist")
 	})
 	.post( (req) => {
 		const {email, wallet, utm} = req.body
