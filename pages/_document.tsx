@@ -24,17 +24,18 @@ export default class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#ffffff"/>
           <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png"/>
           <meta name="theme-color" content="#1D1D1D"/>
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-V6MHFERYSM"/>
-          <script dangerouslySetInnerHTML={{__html: `function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-V6MHFERYSM");`}}/>
+          <script dangerouslySetInnerHTML={{__html: `!function(e,t,c,n,r,a,m){e.ym=e.ym||function(){(e.ym.a=e.ym.a||[]).push(arguments)},e.ym.l=1*new Date;for(var s=0;s<document.scripts.length;s++)if(document.scripts[s].src===n)return;a=t.createElement(c),m=t.getElementsByTagName(c)[0],a.async=1,a.src=n,m.parentNode.insertBefore(a,m)}(window,document,"script","https://mc.yandex.ru/metrika/tag.js"),ym(90649262,"init",{clickmap:!0,trackLinks:!0,accurateTrackBounce:!0,webvisor:!0});`}}/>
         </Head>
-        <body>
-        <Main/>
-        <NextScript />
-        </body>
+	      <body>
+	      <noscript dangerouslySetInnerHTML={{__html: `<div><img src="https://mc.yandex.ru/watch/90649262" style="position:absolute; left:-9999px;" alt="" /></div>`}}/>
+	      <Main/>
+	      <NextScript/>
+	      </body>
       </Html>
     )
   }
-  static async getInitialProps(ctx: DocumentContext) {
+	
+	static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 
