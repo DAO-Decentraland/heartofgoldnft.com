@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import Title from "components/Title";
-import Button from "components/Button";
-import { ConnectKitButton } from "connectkit";
 import {useAccount, useReadContract} from "wagmi";
 import {useEffect, useState} from "react";
 import axios from "axios";
