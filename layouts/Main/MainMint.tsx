@@ -43,7 +43,7 @@ export default function MainMint() {
 			) : (
 				<Title><h2>MINTING<br/>IS NOW LIVE</h2></Title>
 			)}
-			<p className="price_mint">{value} HoG NFT = {value * snap.tokenPrice} BNB</p>
+			<p className="price_mint">{value} HoG NFT = {(value * snap.tokenPrice).toFixed(process.env.MODE === "production" ? 1 : 2)} BNB</p>
 			{process.env.TOTAL_TOKENS && (
 				<p className="total_left">
 					{numberFormat(+process.env.TOTAL_TOKENS - snap.totalSupply)} left
