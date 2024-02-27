@@ -21,7 +21,7 @@ export default function SuccessMintModal({visible, onClick, transactionData}: Su
 			<Wrapper>
 				<Title><h2>You are welcome!</h2></Title>
 				<p className="transaction_label">Your transaction</p>
-				<p className="transaction_link">{renderTransactionLink(transactionData?.hash, 8)}</p>
+				<p className="transaction_link">{renderTransactionLink(transactionData?.transactionHash, 8)}</p>
 				<div className="buttons_list">
 					<ButtonLink href="/profile">Profile</ButtonLink>
 					<Button onClick={() => onClick(false)}>Mint Again</Button>

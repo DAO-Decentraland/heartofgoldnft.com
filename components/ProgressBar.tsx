@@ -26,7 +26,7 @@ export default function ProgressBar({value}: ProgressBarProps) {
 				</div>
 				<div className="progress_description">
 					<ul>
-						<li>Mint {value} NFT using {value * snap.tokenPrice} BNB</li>
+						<li>Mint {value} NFT using {(value * snap.tokenPrice).toFixed(process.env.MODE === "production" ? 1 : 2)} BNB</li>
 					</ul>
 					<p>Out of {numberFormat(process.env.TOTAL_TOKENS)}</p>
 				</div>

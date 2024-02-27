@@ -59,7 +59,7 @@ export default function MintForm({value, onClick}: MintFormProps) {
 			enabled: Boolean(transaction)
 		}
 	})
-	
+
 	useEffect(() => {
 		if (isLoading) setStatus(MintEnum.LOADING)
 		if (isError) {

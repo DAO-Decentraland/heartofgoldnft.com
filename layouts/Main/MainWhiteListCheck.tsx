@@ -28,7 +28,7 @@ export default function MainWhiteListCheck() {
 	}
 	return (
 		<Wrapper>
-			<Title><h2>Minting Will<br/>Open Soon</h2></Title>
+			<Title><h2>Pre-Mint Event<br/>Is Now Open</h2></Title>
 			<div className="description">
 				<p>Pre-Mint Event Now Open for Whitelisted Users Only.</p>
 				<p>Enter Your Email for Authorization.</p>

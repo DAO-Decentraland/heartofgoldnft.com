@@ -20,10 +20,10 @@ export default function ErrorMintModal({visible, onClick, transactionData}: Erro
 			<Wrapper>
 				<Title><h2>Something went wrong</h2></Title>
 				{
-					transactionData?.hash ? (
+					transactionData?.transactionHash ? (
 						<>
 							<p className="transaction_label">Your transaction</p>
-							<p className="transaction_link">{renderTransactionLink(transactionData?.hash, 8)}</p>
+							<p className="transaction_link">{renderTransactionLink(transactionData?.transactionHash, 8)}</p>
 						</>
 					) : (
 						<p className="error_description">{transactionData}</p>
