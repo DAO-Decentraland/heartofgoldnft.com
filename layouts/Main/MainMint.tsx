@@ -3,10 +3,9 @@ import Title from "components/Title";
 import {useAccount, useReadContract} from "wagmi";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import numberFormat from "helpers/numberFormat";
 import ProgressBar from "components/ProgressBar";
 import MintForm from "components/Forms/MintForm";
-import {checkMintOver, getABIContract} from "utils/functions";
+import {checkMintOver, getABIContract, renderPrice} from "utils/functions";
 import {formatEther} from "viem";
 import {state} from "state";
 import {useSnapshot} from "valtio";
@@ -41,7 +40,7 @@ export default function MainMint() {
 			) : (
 				<Title><h2>MINT HOG<br/>NFT NOW</h2></Title>
 			)}
-			<p className="price_mint">{value} HoG NFT = {(value * snap.tokenPrice).toFixed(process.env.MODE === "production" ? 1 : 2)} BNB</p>
+			<p className="price_mint">{value} HoG NFT = {renderPrice(value)} BNB</p>
 			{/*{process.env.TOTAL_TOKENS && (*/}
 			{/*	<p className="total_left">*/}
 			{/*		{numberFormat(+process.env.TOTAL_TOKENS - snap.totalSupply)} left*/}

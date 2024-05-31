@@ -5,7 +5,7 @@ import {useAccount, useReadContract, useWaitForTransactionReceipt, useWriteContr
 import {useSnapshot} from "valtio";
 import {state} from "state";
 import {useEffect, useState} from "react";
-import {checkMintOver, getABIContract} from "utils/functions";
+import {checkMintOver, getABIContract, renderPrice} from "utils/functions";
 import {parseEther} from 'ethers';
 import {bsc, bscTestnet} from "viem/chains";
 import {MintEnum} from "app-lib/enums/mint.enum";
@@ -42,7 +42,7 @@ export default function MintForm({value, onClick}: MintFormProps) {
 				abi: getABIContract(),
 				functionName: "mint",
 				args: [account.address, value],
-				value: parseEther(String(value * snap.tokenPrice)),
+				value: parseEther(String(renderPrice(value))),
 			})
 			setTransaction(transaction)
 		} catch (error) {
