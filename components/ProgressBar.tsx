@@ -28,7 +28,7 @@ export default function ProgressBar({value}: ProgressBarProps) {
 					<ul>
 						<li>Mint {value} NFT using {(value * snap.tokenPrice).toFixed(process.env.MODE === "production" ? 1 : 2)} BNB</li>
 					</ul>
-					<p>Out of {numberFormat(process.env.TOTAL_TOKENS)}</p>
+					{/*<p>Out of {numberFormat(process.env.TOTAL_TOKENS)}</p>*/}
 				</div>
 			</Wrapper>
 		) : null
@@ -71,6 +71,13 @@ const Wrapper = styled.div`
 		@media only screen and (max-width: 600px) {
 			font-size: 11px;
 			line-height: 120%;
+		}
+		ul{
+			width: 100%;
+		}
+		li{
+			width: 100%;
+			text-align: center;
 		}
 	}
 `

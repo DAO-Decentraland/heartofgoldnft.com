@@ -15,7 +15,7 @@ import ConnectWalletButton from "components/ConnectWalletButton";
 export default function MainMint() {
 	const snap = useSnapshot(state)
 	const {isConnected} = useAccount()
-	const [value, setValue] = useState(3)
+	const [value, setValue] = useState(1)
 
 	const tokenPrice = useReadContract({
 		abi: getABIContract(),
@@ -39,14 +39,14 @@ export default function MainMint() {
 			{snap.mintOver ? (
 				<Title><h2>MINTING<br/>IS OVER</h2></Title>
 			) : (
-				<Title><h2>MINTING<br/>IS NOW LIVE</h2></Title>
+				<Title><h2>MINT HOG<br/>NFT NOW</h2></Title>
 			)}
 			<p className="price_mint">{value} HoG NFT = {(value * snap.tokenPrice).toFixed(process.env.MODE === "production" ? 1 : 2)} BNB</p>
-			{process.env.TOTAL_TOKENS && (
-				<p className="total_left">
-					{numberFormat(+process.env.TOTAL_TOKENS - snap.totalSupply)} left
-				</p>
-			)}
+			{/*{process.env.TOTAL_TOKENS && (*/}
+			{/*	<p className="total_left">*/}
+			{/*		{numberFormat(+process.env.TOTAL_TOKENS - snap.totalSupply)} left*/}
+			{/*	</p>*/}
+			{/*)}*/}
 			<ProgressBar value={value}/>
 			{isConnected ? (
 				<MintForm
