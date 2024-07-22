@@ -13,6 +13,8 @@ import GalleryCardsList from "components/Gallery/GalleryCardsList";
 import GalleryModalItem from "components/Gallery/GalleryModalItem";
 import Pagination from "components/Pagination";
 import GalleryNotification from "components/Gallery/GalleryNotification";
+import Header from "components/Header";
+import Footer from "components/Footer";
 
 export default function Gallery(){
 	const {query, push} = useRouter()
@@ -51,27 +53,31 @@ export default function Gallery(){
 				description="Empower your unstoppable winning streak in our groundbreaking NFT Collection, where GAMEFi meets Play-to-Earn at the ultimate crossroads."
 				image="/pic/og.jpg"
 			/>
-			<GalleryModalItem/>
-			<Wrapper>
-				<CenterBlock>
-					<Title className="heading"><h1>Gallery</h1></Title>
-					<GallerySorting/>
-					{
-						snap.galleryArray.result ? (
-							snap.galleryArray.result.length ? (
-								<GalleryCardsList>
-									{
-										snap.galleryArray.result.map(item => {
-											return <GalleryCardItem item={item} key={item.id}/>
-										})
-									}
-								</GalleryCardsList>
-							) : <GalleryNotification>Nothing found. Change filters</GalleryNotification>
-						) : <GalleryNotification>Loading</GalleryNotification>
-					}
-					<Pagination total={snap.galleryArray.totalPages} page={snap.galleryPage} slug="/gallery"/>
-				</CenterBlock>
-			</Wrapper>
+			<Header/>
+			<main>
+				<GalleryModalItem/>
+				<Wrapper>
+					<CenterBlock>
+						<Title className="heading"><h1>Gallery</h1></Title>
+						<GallerySorting/>
+						{
+							snap.galleryArray.result ? (
+								snap.galleryArray.result.length ? (
+									<GalleryCardsList>
+										{
+											snap.galleryArray.result.map(item => {
+												return <GalleryCardItem item={item} key={item.id}/>
+											})
+										}
+									</GalleryCardsList>
+								) : <GalleryNotification>Nothing found. Change filters</GalleryNotification>
+							) : <GalleryNotification>Loading</GalleryNotification>
+						}
+						<Pagination total={snap.galleryArray.totalPages} page={snap.galleryPage} slug="/gallery"/>
+					</CenterBlock>
+				</Wrapper>
+			</main>
+			<Footer/>
 		</>
 	)
 }

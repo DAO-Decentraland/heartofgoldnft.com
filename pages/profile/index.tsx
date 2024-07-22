@@ -16,17 +16,19 @@ import Pagination from "components/Pagination";
 import ProfileCardItem from "components/Profile/ProfileCardItem";
 import {useRouter} from "next/router";
 import ConnectWalletButton from "components/ConnectWalletButton";
+import Header from "components/Header";
+import Footer from "components/Footer";
 
 export default function Profile(){
 	const snap = useSnapshot(state)
 	const {push, query} = useRouter()
 	const [array, setArray] = useState<number[]>([])
 	const {address, isConnected} = useAccount()
-	
+
 	useEffect(() => {
 		push("/profile?page=1").then(() => makeRequest(1))
 	}, [snap.profileFilters, snap.profileSorting]);
-	
+
 	const {data} = useReadContract({
 		abi: getABIContract(),
 		address: process.env.CONTRACT as any,
@@ -36,15 +38,15 @@ export default function Profile(){
 			enabled: !Boolean(array.length)
 		}
 	})
-	
+
 	useEffect(() => {
 		state.profilePage = query.page ? Number(query.page) : 1
 	}, [query.page])
-	
+
 	useEffect(() => {
 		if (array.length) makeRequest(Number(snap.profilePage))
 	}, [snap.profilePage])
-	
+
 	if (data && array.length === 0) {
 		if (data as bigint[]) {
 			const array = [] as number[]
@@ -54,7 +56,7 @@ export default function Profile(){
 			setArray(array)
 		}
 	}
-	
+
 	useEffect(() => {
 		if (array.length) makeRequest(1)
 	}, [array]);
@@ -84,38 +86,42 @@ export default function Profile(){
 				description="Empower your unstoppable winning streak in our groundbreaking NFT Collection, where GAMEFi meets Play-to-Earn at the ultimate crossroads."
 				image="/pic/og.jpg"
 			/>
-			<ProfileModalItem/>
-			<Wrapper>
-				<CenterBlock>
-					<Title className="heading"><h1>Profile</h1></Title>
-					{
-						isConnected ? (
-							<>
-								<ProfileSorting tokensArray={array}/>
-								{
-									snap.profileArray.result ? (
-										snap.profileArray.result.length ? (
-											<GalleryCardsList>
-												{
-													snap.profileArray.result.map(item => {
-														return <ProfileCardItem item={item} key={item.id}/>
-													})
-												}
-											</GalleryCardsList>
-										) : <GalleryNotification>Nothing found. Change filters</GalleryNotification>
-									) : <GalleryNotification>Loading</GalleryNotification>
-								}
-								<Pagination total={snap.profileArray.totalPages} page={snap.profilePage} slug="/profile"/>
-							</>
-						) : (
-							<>
-								<p className="connect_description">Wallet Connection Required: Connect your wallet to activate your profile.</p>
-								<ConnectWalletButton/>
-							</>
-						)
-					}
-				</CenterBlock>
-			</Wrapper>
+			<Header/>
+			<main>
+				<ProfileModalItem/>
+				<Wrapper>
+					<CenterBlock>
+						<Title className="heading"><h1>Profile</h1></Title>
+						{
+							isConnected ? (
+								<>
+									<ProfileSorting tokensArray={array}/>
+									{
+										snap.profileArray.result ? (
+											snap.profileArray.result.length ? (
+												<GalleryCardsList>
+													{
+														snap.profileArray.result.map(item => {
+															return <ProfileCardItem item={item} key={item.id}/>
+														})
+													}
+												</GalleryCardsList>
+											) : <GalleryNotification>Nothing found. Change filters</GalleryNotification>
+										) : <GalleryNotification>Loading</GalleryNotification>
+									}
+									<Pagination total={snap.profileArray.totalPages} page={snap.profilePage} slug="/profile"/>
+								</>
+							) : (
+								<>
+									<p className="connect_description">Wallet Connection Required: Connect your wallet to activate your profile.</p>
+									<ConnectWalletButton/>
+								</>
+							)
+						}
+					</CenterBlock>
+				</Wrapper>
+			</main>
+			<Footer/>
 		</>
 	)
 }

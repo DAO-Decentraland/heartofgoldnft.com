@@ -21,7 +21,8 @@ const nextConfig = {
 		MODE: process.env.MODE,
 		WEBSITE: process.env.WEBSITE,
 		CONTRACT: process.env.CONTRACT,
-		TOTAL_TOKENS: process.env.TOTAL_TOKENS
+		TOTAL_TOKENS: process.env.TOTAL_TOKENS,
+		BOT_API: process.env.BOT_API
 	}
 }
 

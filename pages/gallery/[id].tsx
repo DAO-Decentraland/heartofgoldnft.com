@@ -8,6 +8,8 @@ import {Collection} from "app-lib/interface/collection";
 import Image from "next/image";
 import Title from "components/Title";
 import numberFormat from "helpers/numberFormat";
+import Header from "components/Header";
+import Footer from "components/Footer";
 
 export default function GalleryCard({data}: {data: Collection}) {
 	const {back} = useRouter()
@@ -18,28 +20,32 @@ export default function GalleryCard({data}: {data: Collection}) {
 				description="Empower your unstoppable winning streak in our groundbreaking NFT Collection, where GAMEFi meets Play-to-Earn at the ultimate crossroads."
 				image={`https://cards.heartofgoldnft.com/${data.image}.png`}
 			/>
-			<Wrapper>
-				<CenterBlock>
-					<button onClick={back} className="back_button"><img src="/pic/back-icon.svg" alt="Back"/>Back</button>
-					<div className="content_block">
-						<div className="image">
-							<Image width={600} height={876.51} src={`https://cards.heartofgoldnft.com/${data.image}.webp`} alt={data.id.toString()}/>
+			<Header/>
+			<main>
+				<Wrapper>
+					<CenterBlock>
+						<button onClick={back} className="back_button"><img src="/pic/back-icon.svg" alt="Back"/>Back</button>
+						<div className="content_block">
+							<div className="image">
+								<Image width={600} height={876.51} src={`https://cards.heartofgoldnft.com/${data.image}.webp`} alt={data.id.toString()}/>
+							</div>
+							<div className="content">
+								<Title><img src="/pic/number-icon.svg" alt={data.id.toString()}/><h1>{numberFormat(data.id)}</h1></Title>
+								<ul className="list">
+									<li><p>Rarity rank</p><p>{numberFormat(data.rank)}</p></li>
+									<li><p>Metal</p><p>{data.metal}</p></li>
+									<li><p>Augmentation</p><p>{data.augmentation}</p></li>
+									<li><p>Stone</p><p>{data.stone}</p></li>
+									<li><p>Pattern</p><p>{data.pattern}</p></li>
+									<li><p>Planet</p><p>{data.planet}</p></li>
+									<li><p>Star</p><p>{data.star}</p></li>
+								</ul>
+							</div>
 						</div>
-						<div className="content">
-							<Title><img src="/pic/number-icon.svg" alt={data.id.toString()}/><h1>{numberFormat(data.id)}</h1></Title>
-							<ul className="list">
-								<li><p>Rarity rank</p><p>{numberFormat(data.rank)}</p></li>
-								<li><p>Metal</p><p>{data.metal}</p></li>
-								<li><p>Augmentation</p><p>{data.augmentation}</p></li>
-								<li><p>Stone</p><p>{data.stone}</p></li>
-								<li><p>Pattern</p><p>{data.pattern}</p></li>
-								<li><p>Planet</p><p>{data.planet}</p></li>
-								<li><p>Star</p><p>{data.star}</p></li>
-							</ul>
-						</div>
-					</div>
-				</CenterBlock>
-			</Wrapper>
+					</CenterBlock>
+				</Wrapper>
+			</main>
+			<Footer/>
 		</>
 	)
 }
