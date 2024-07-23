@@ -57,7 +57,7 @@ export default function Airdrop(){
 								<div style={{background: "#937444"}} className="item">
 									<div className="content">
 										<h3>1. Accept Terms & Conditions</h3>
-										<CustomCheckBox checked={approve} onClick={setApprove}>I Accept <a href="#" target="_blank" rel="noreferrer">Terms & Conditions</a></CustomCheckBox>
+										<CustomCheckBox checked={approve} onClick={setApprove}>I Accept <Link href={`/airdrop/terms?id=${query.id}`}>Terms & Conditions</Link></CustomCheckBox>
 									</div>
 									<Image width={160} src={airDropImage1} alt="Accept Terms & Conditions"/>
 								</div>
@@ -147,6 +147,8 @@ const Wrapper = styled.section`
 		}
 		img{
 			margin-right: 25px;
+			display: flex;
+			align-items: center;
 			@media only screen and (max-width: 600px) {
 				width: 50px;
 				margin-right: 10px;

@@ -84,6 +84,8 @@ const Wrapper = styled.section`
 		}
 		img{
 			margin-right: 25px;
+			display: flex;
+			align-items: center;
 			@media only screen and (max-width: 600px) {
 				width: 50px;
 				margin-right: 10px;
