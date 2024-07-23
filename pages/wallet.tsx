@@ -90,8 +90,9 @@ export default function Wallet(){
 								</>
 							) : (
 								<>
-									<h1>Wallet connection error</h1>
-									<p className="connect_wallet_description">You are trying to connect your wallet, but we did not find you in the game. Try going into the game and clicking <strong>“Connect wallet”</strong></p>
+									<h1>Wallet Connection Error</h1>
+									<p className="connect_wallet_description">It looks like you’re trying to connect your wallet, but we couldn’t find your account in the system. Please click “Back to Game” and then try clicking <strong>“Connect Wallet”</strong> again.
+									</p>
 									<div className="back_link">
 										<a href="https://t.me/Deus_HoG_bot">Back to game</a>
 									</div>
