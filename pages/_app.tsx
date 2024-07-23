@@ -1,7 +1,5 @@
 import "public/css/style.css"
 import {AppProps} from "next/app";
-import Header from "components/Header";
-import Footer from "components/Footer";
 import MobileNav from "components/MobileNav";
 import GalleryFiltersModal from "components/Gallery/GalleryFiltersModal";
 import "slick-carousel/slick/slick.css";
@@ -31,11 +29,7 @@ export default function MyApp({Component, pageProps}: AppProps) {
       <GalleryFiltersModal/>
       <ProfileFiltersModal/>
       <MobileNav/>
-      <Header/>
-      <main>
-        <Component {...pageProps} />
-      </main>
-      <Footer/>
+      <Component {...pageProps} />
     </Web3Provider>
   )
 }

@@ -18,6 +18,8 @@ import MintWhiteListWrapper from "layouts/Main/MintWhiteListWrapper";
 import ErrorMintModal from "components/Modals/ErrorMintModal";
 import {MintStatusEnum} from "app-lib/enums/mint.enum";
 import MainWhiteListCheck from "layouts/Main/MainWhiteListCheck";
+import Header from "components/Header";
+import Footer from "components/Footer";
 
 export default function Home(){
 	const snap = useSnapshot(state)
@@ -35,7 +37,7 @@ export default function Home(){
 			}, 300)
 		}
 	}, [query]);
-	
+
 	return (
 		<>
 			<Seo
@@ -43,24 +45,28 @@ export default function Home(){
 				description="Empower your unstoppable winning streak in our groundbreaking NFT Collection, where GAMEFi meets Play-to-Earn at the ultimate crossroads."
 				image="/pic/og.jpg"
 			/>
-			<ErrorMintModal
-				visible={Boolean(snap.mintError)}
-				onClick={() => state.mintError = null}
-				transactionData={snap.mintError}
-			/>
-			<MainBlock/>
-			<MainMedia/>
-			<MintWhiteListWrapper>
-				{snap.mintStatus === MintStatusEnum.MINT_DISABLED ? <MainWhitelisted/> : null}
-				{snap.mintStatus === MintStatusEnum.WHITE_LIST_MINT ? <MainWhiteListCheck/> : null}
-				{snap.mintStatus === MintStatusEnum.MINT_START ? <MainMint/> : null}
-			</MintWhiteListWrapper>
-			<MainHowItWorks/>
-			<MainCommunity/>
-			<MainCollection/>
-			<MainRoadmap/>
-			<MainTeam/>
-			<MainFaq/>
+			<Header/>
+			<main>
+				<ErrorMintModal
+					visible={Boolean(snap.mintError)}
+					onClick={() => state.mintError = null}
+					transactionData={snap.mintError}
+				/>
+				<MainBlock/>
+				<MainMedia/>
+				<MintWhiteListWrapper>
+					{snap.mintStatus === MintStatusEnum.MINT_DISABLED ? <MainWhitelisted/> : null}
+					{snap.mintStatus === MintStatusEnum.WHITE_LIST_MINT ? <MainWhiteListCheck/> : null}
+					{snap.mintStatus === MintStatusEnum.MINT_START ? <MainMint/> : null}
+				</MintWhiteListWrapper>
+				<MainHowItWorks/>
+				<MainCommunity/>
+				<MainCollection/>
+				<MainRoadmap/>
+				<MainTeam/>
+				<MainFaq/>
+			</main>
+			<Footer/>
 		</>
 	)
 }

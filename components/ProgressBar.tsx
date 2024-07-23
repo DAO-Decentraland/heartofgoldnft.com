@@ -2,8 +2,8 @@ import styled from "styled-components";
 import {useSnapshot} from "valtio";
 import {state} from "state";
 import {useEffect} from "react";
-import numberFormat from "helpers/numberFormat";
 import axios from "axios";
+import {renderPrice} from "utils/functions";
 
 interface ProgressBarProps {
 	value: number,
@@ -18,6 +18,7 @@ export default function ProgressBar({value}: ProgressBarProps) {
 		}, 30000);
 		return () => clearInterval(timer);
 	})
+
 	return (
 		process.env.TOTAL_TOKENS ? (
 			<Wrapper className="progress_bar">
@@ -26,9 +27,9 @@ export default function ProgressBar({value}: ProgressBarProps) {
 				</div>
 				<div className="progress_description">
 					<ul>
-						<li>Mint {value} NFT using {(value * snap.tokenPrice).toFixed(process.env.MODE === "production" ? 1 : 2)} BNB</li>
+						<li>Mint {value} NFT using {renderPrice(value)} BNB</li>
 					</ul>
-					<p>Out of {numberFormat(process.env.TOTAL_TOKENS)}</p>
+					{/*<p>Out of {numberFormat(process.env.TOTAL_TOKENS)}</p>*/}
 				</div>
 			</Wrapper>
 		) : null
@@ -71,6 +72,13 @@ const Wrapper = styled.div`
 		@media only screen and (max-width: 600px) {
 			font-size: 11px;
 			line-height: 120%;
+		}
+		ul{
+			width: 100%;
+		}
+		li{
+			width: 100%;
+			text-align: center;
 		}
 	}
 `
