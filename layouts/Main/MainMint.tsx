@@ -1,12 +1,11 @@
 import styled from "styled-components";
 import Title from "components/Title";
-import {useAccount, useReadContract} from "wagmi";
+import {useAccount} from "wagmi";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import ProgressBar from "components/ProgressBar";
 import MintForm from "components/Forms/MintForm";
-import {checkMintOver, getABIContract, renderPrice} from "utils/functions";
-import {formatEther} from "viem";
+import {checkMintOver, renderPrice} from "utils/functions";
 import {state} from "state";
 import {useSnapshot} from "valtio";
 import ConnectWalletButton from "components/ConnectWalletButton";
@@ -15,16 +14,6 @@ export default function MainMint() {
 	const snap = useSnapshot(state)
 	const {isConnected} = useAccount()
 	const [value, setValue] = useState(1)
-
-	const tokenPrice = useReadContract({
-		abi: getABIContract(),
-		address: process.env.CONTRACT as any,
-		functionName: 'tokenPrice',
-	})
-
-	useEffect(() => {
-		if (tokenPrice?.data) state.tokenPrice = +formatEther(tokenPrice.data as bigint)
-	}, [tokenPrice]);
 
 	useEffect(() => {
 		axios.get("/api/total").then(r => {
