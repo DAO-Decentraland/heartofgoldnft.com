@@ -89,7 +89,7 @@ export default function Airdrop(){
 								<div style={{background: "#747474"}} className="item">
 									<div className="content">
 										<h3>5. Join the $HOG Pre-Sale 🔥</h3>
-										<Link className="learn_link" href="/">Learn more</Link>
+										<Link className="learn_link" href={`/airdrop/terms?id=${query.id}`}>Learn more</Link>
 									</div>
 									<Image width={160} src={airDropImage5} alt="Join the $HOG Pre-Sale"/>
 								</div>
@@ -142,7 +142,7 @@ const Wrapper = styled.section`
 			font-weight: 600;
 			line-height: 100%;
 			@media only screen and (max-width: 600px) {
-				font-size: 16px;
+				font-size: 20px;
 			}
 		}
 		img{
