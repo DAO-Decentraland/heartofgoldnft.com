@@ -33,9 +33,7 @@ export default function Airdrop(){
 					if (r.data.data.data) {
 						setWalletAddress(r.data.data.data.walletAddress)
 						if (r.data.data.data.walletAddress) setApprove(true)
-					} else {
-						setApprove(false)
-					}
+					} else setApprove(false)
 				})
 		}
 	}
