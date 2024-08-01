@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {ConnectKitButton} from "connectkit";
 import {useAccount} from "wagmi";
 import {useEffect, useState} from "react";
-import {useRouter} from "next/router";
+import Router, {useRouter} from "next/router";
 import axios from "axios";
 
 interface ConnectWalletButtonAirdropProps {
@@ -20,14 +20,14 @@ export default function ConnectWalletButtonAirdrop({walletAddress, onCallBack, c
 	const onHandleClick = () => {
 		setLoading(true)
 		if (!walletAddress) {
-			axios.post("/api/airdrop", {walletAddress: address, id: query.id})
+			axios.post("/api/wallet", {walletAddress: address, id: query.id})
 				.then(() => {
 					setLoading(false)
 					onCallBack()
 				})
 				.catch(() => setLoading(false))
 		} else {
-			axios.delete("/api/airdrop", {params: {walletAddress: address, id: query.id}})
+			axios.delete("/api/wallet", {params: {walletAddress: address, id: query.id}})
 				.then(() => {
 					setLoading(false)
 					onCallBack()
@@ -35,17 +35,6 @@ export default function ConnectWalletButtonAirdrop({walletAddress, onCallBack, c
 				.catch(() => setLoading(false))
 		}
 	}
-
-	useEffect(() => {
-		if (address && query.id && !walletAddress) {
-			setLoading(true)
-			axios.post("/api/airdrop", {walletAddress: address, id: query.id})
-				.then(() => {
-					setLoading(false)
-					onCallBack()
-				})
-		}
-	}, [address]);
 
 	return (
 		<Wrapper className={`connect_wallet_button ${className ? className : ""}`}>

@@ -70,8 +70,8 @@ jobs:
 
           cp ${TEMP_PATH}/.env.prod ${TEMP_PATH}/.env
           cd ${TEMP_PATH}
-          yarn install
-          yarn build
+          yarn install || exit 1
+          yarn build || exit 1
 
           rsync -rvaq --delete ${TEMP_PATH}/. ${CURRENT_PATH}
 
