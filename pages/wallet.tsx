@@ -1,7 +1,7 @@
 import Seo from "helpers/Seo";
 import styled from "styled-components";
 import CenterBlock from "helpers/CenterBlock";
-import Router, {useRouter} from "next/router";
+import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import ConnectWalletButtonAirdrop from "components/ConnectWalletButtonAirdrop";
@@ -67,7 +67,7 @@ export default function Wallet(){
 									></ConnectWalletButtonAirdrop>
 									{walletAddress ? (
 										<div className="redirect_link">
-											<a href="https://t.me/Deus_HoG_bot">Back to game</a>
+											<a href="https://t.me/Deus_game_bot">Back to game</a>
 										</div>
 									) : null}
 									<p className="connect_wallet_description">Ensure terms are accepted before connecting</p>
@@ -94,7 +94,7 @@ export default function Wallet(){
 									<p className="connect_wallet_description">It looks like you’re trying to connect your wallet, but we couldn’t find your account in the system. Please click “Back to Game” and then try clicking <strong>“Connect Wallet”</strong> again.
 									</p>
 									<div className="back_link">
-										<a href="https://t.me/Deus_HoG_bot">Back to game</a>
+										<a href="https://t.me/Deus_game_bot">Back to game</a>
 									</div>
 								</>
 							)
