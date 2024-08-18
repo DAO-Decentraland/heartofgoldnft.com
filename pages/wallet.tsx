@@ -67,7 +67,7 @@ export default function Wallet(){
 									></ConnectWalletButtonAirdrop>
 									{walletAddress ? (
 										<div className="redirect_link">
-											<a href="https://t.me/Deus_game_bot">Back to game</a>
+											<a href="https://t.me/Deus_game_bot?reboot=true">Back to game</a>
 										</div>
 									) : null}
 									<p className="connect_wallet_description">Ensure terms are accepted before connecting</p>
