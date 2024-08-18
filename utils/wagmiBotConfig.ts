@@ -1,6 +1,5 @@
-import {createConfig, http} from "wagmi";
+import {createConfig} from "wagmi";
 import {getDefaultConfig} from "connectkit";
-import {mainnet} from "viem/chains";
 
 const config = createConfig(
 	getDefaultConfig({
@@ -10,10 +9,6 @@ const config = createConfig(
 		appDescription: "UNLOCKING THE FUTURE OF NFT - Empower your unstoppable winning streak in our groundbreaking NFT Collection, where GAMEFi meets Play-to-Earn at the ultimate crossroads.",
 		appUrl: process.env.WEBSITE,
 		appIcon: `${process.env.WEBSITE}/pic/wallet-icon.png`,
-		chains: [mainnet],
-		transports: {
-			[mainnet.id]: http(mainnet.rpcUrls.default.http[0]),
-		}
 	})
 );
 
