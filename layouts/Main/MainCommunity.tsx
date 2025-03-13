@@ -3,11 +3,12 @@ import Marquee from "react-fast-marquee";
 import CenterBlock from "helpers/CenterBlock";
 import array from "public/data/social.json"
 import Title from "components/Title";
-import Lottie from "lottie-react";
+import dynamic from "next/dynamic";
 import animationTelegram from "public/lottie/telegram-animation.json";
 import animationTwitter from "public/lottie/twitter-animation.json";
 import animationInstagram from "public/lottie/instagram-animation.json";
 import animationDiscord from "public/lottie/discord-animation.json";
+const Lottie = dynamic(() => import("lottie-react"), {ssr: false})
 
 export default function MainCommunity() {
 	const renderLottieAnimation = (title: string) => {

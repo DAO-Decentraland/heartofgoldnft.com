@@ -1,7 +1,6 @@
 import Seo from "helpers/Seo";
 import MainBlock from "layouts/Main/MainBlock";
 import MainFaq from "layouts/Main/MainFaq";
-import MainTeam from "layouts/Main/MainTeam";
 import MainHowItWorks from "layouts/Main/MainHowItWorks";
 import MainRoadmap from "layouts/Main/MainRoadmap";
 import MainMedia from "layouts/Main/MainMedia";
@@ -63,7 +62,6 @@ export default function Home(){
 				<MainCommunity/>
 				<MainCollection/>
 				<MainRoadmap/>
-				<MainTeam/>
 				<MainFaq/>
 			</main>
 			<Footer/>
